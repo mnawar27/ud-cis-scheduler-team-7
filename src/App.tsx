@@ -1,21 +1,15 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App(): JSX.Element {
     return (
         <div className="App">
+            UD CIS Scheduler
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                UD CIS Scheduler
 
-                <p>Maisha Nawar</p>
-                <p>Jakob Wolf</p>
-                <p>Macy Beach</p> 
+                <h1>CS degree plan</h1>
 
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
             </header>
         </div>
     );
