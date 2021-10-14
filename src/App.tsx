@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { Semester } from "./Components/Semester";
 
 function App(): JSX.Element {
     return (
@@ -8,7 +9,7 @@ function App(): JSX.Element {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 UD CIS Scheduler
-
+                <Semester></Semester>
                 <p>Maisha Nawar</p>
                 <p>Jakob Wolf</p>
                 <p>Macy Beach</p> 
