@@ -8,17 +8,11 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                UD CIS Scheduler
-                <Semester ></Semester>
-                <p>Maisha Nawar</p>
-                <p>Jakob Wolf</p>
-                <p>Macy Beach</p> 
 
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
+
+                <h1>UD CIS Scheduler</h1>
             </header>
+            <Semester></Semester>
         </div>
     );
 }
