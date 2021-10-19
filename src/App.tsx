@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import { Semester } from "./Components/Semester";
 import "./Components/Semester.css";
 
@@ -9,10 +9,14 @@ function App(): JSX.Element {
         <div className="App">
             <header className="App-header">
 
-
-                <h1>UD CIS Scheduler</h1>
+                <h1>UD CIS Scheduler</h1> 
+                <div className="rowC">
+                    <Semester year={1} season={"Fall"}></Semester>
+                    <Semester year={1} season={"Spring"}></Semester>
+                </div>
+                
             </header>
-            <Semester></Semester>
+            
         </div>
     );
 }

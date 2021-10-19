@@ -7,3 +7,7 @@
     position:relative;
     box-shadow:0px 1px 5px #999;
 }
+.rowC{
+    display:flex;
+    flex-direction:row;
+}
