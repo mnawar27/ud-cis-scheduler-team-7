@@ -1,6 +1,6 @@
 import React from "react";
 import Course from "../Interfaces/Course";
-export function Semester(props:{year :number,season:string}): JSX.Element{
+export function Semester(props:{year :number,season:string,courses:Course[]}): JSX.Element{
     const Cisc108 : Course ={
         name:"Cisc 108",
         credits:3,
