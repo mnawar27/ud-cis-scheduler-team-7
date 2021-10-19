@@ -1,9 +1,11 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col} from "react-bootstrap";
 import "./Components/Menu.css";
 import {Menu} from "./Components/Menu";
-import { Container, Row, Col} from "react-bootstrap";
+import "./Components/Semester.css";
+import { Semester } from "./Components/Semester";
 
 function App(): JSX.Element {
     return (
@@ -18,6 +20,7 @@ function App(): JSX.Element {
                     <Menu />
                 </Col>
                 <Col>
+                    <Semester />
                 </Col>
             </Row>
         </Container>   
