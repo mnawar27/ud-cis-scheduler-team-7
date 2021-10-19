@@ -20,8 +20,7 @@ function App(): JSX.Element {
                 <Col>
                 </Col>
             </Row>
-        </Container>
-            
+        </Container>   
     );
 }
 
