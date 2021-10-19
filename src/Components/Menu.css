@@ -2,5 +2,9 @@
     display: flex;
     justify-content: center;
     flex-flow: column-wrap;
+    background-color: #203647;
+}
 
+ul {
+    list-style-type: none;
 }
