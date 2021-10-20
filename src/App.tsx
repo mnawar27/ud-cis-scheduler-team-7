@@ -5,10 +5,13 @@ import "./Components/Menu.css";
 import {Menu} from "./Components/Menu";
 import "./Components/Semester.css";
 import { Semester } from "./Components/Semester";
+import "./Components/Welcome.css";
+import { Welcome } from "./Components/Welcome";
 
 function App(): JSX.Element {
     return (
         <div className="App">
+            <Welcome />
             <div className="container-fluid"> 
                 <div className="row">
                     <header className="App-header">
