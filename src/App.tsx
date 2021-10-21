@@ -20,6 +20,7 @@ function App(): JSX.Element {
                 </div>
                 <div className="row">
                     <div className="col-3">
+                        <h3>Course list</h3>
                         <Menu />
                     </div>
                     <div className="col">
