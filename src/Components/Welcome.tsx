@@ -13,7 +13,7 @@ export function Welcome(): JSX.Element{
                         <strong className="me-auto">Welcome!</strong>
                     </ToastHeader>
                     <Toast.Body> 
-                        This handy dandy website can help you plan out your four-year computer science degree.
+                        This handy dandy website can help you plan out your computer science degree at the University of Delaware.
                     </Toast.Body>
                     <Toast.Body> 
                         <button type="button" className="btn btn-dark btn-sm">Tutorial</button>
