@@ -1,10 +1,16 @@
+import React from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Components/Menu.css";
+import {Menu} from "./Components/Menu";
+import "./Components/Semester.css";
 import { Semester } from "./Components/Semester";
 import "./Components/Welcome.css";
 import { Welcome } from "./Components/Welcome";
 import Course from "./Interfaces/Course";
-import { Menu } from "./Components/Menu";
-import React from "react";
-
+import "./App.css";
+import "./Components/Semester.css";
+import "./Components/Menu.css";
 
 function App(): JSX.Element {
     const Cisc108: Course = {
@@ -43,4 +49,5 @@ function App(): JSX.Element {
         </div>
     );
 }
+
 export default App;
