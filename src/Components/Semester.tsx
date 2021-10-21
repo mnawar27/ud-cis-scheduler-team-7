@@ -10,3 +10,4 @@ export function Semester(props:{year :number,season:string,courses:Course[]}): J
     </div>
     ;
 }
+//comment to force a commit

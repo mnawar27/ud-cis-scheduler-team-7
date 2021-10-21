@@ -11,7 +11,7 @@ import Course from "./Interfaces/Course";
 import "./App.css";
 import "./Components/Semester.css";
 import "./Components/Menu.css";
-
+//comment to force a commit
 function App(): JSX.Element {
     const Cisc108: Course = {
         name: "Cisc 108",
