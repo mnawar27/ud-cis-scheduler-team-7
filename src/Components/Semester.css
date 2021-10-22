@@ -1,9 +1,9 @@
 .semester{
-    background-color: #203647;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
     color: #ffff;
     margin-bottom: 25px;
-    padding: 10px 14px 10px 44px;
-    position:relative; 
+    padding: 15px;
+    position: relative; 
 }
