@@ -1,5 +1,5 @@
 .App {
-  background-color: #12232E;
+  background-color: #212221;
   color: white;
 }
 
@@ -13,7 +13,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.row{
-  display:flex;
+.row {
+  display: flex;
 }
 
+.col-3 {
+  background-color: #00539F;
+  margin-right: 10px;
+}

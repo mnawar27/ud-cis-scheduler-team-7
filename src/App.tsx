@@ -34,16 +34,19 @@ function App(): JSX.Element {
                 </div>
                 <div className="row">
                     <div className="col-3">
-                        <h3>Course list</h3>
                         <Menu />
                     </div>
                     <div className="col">
                         <Semester year={1} season={"Fall"} courses={courses} />
                         <Semester year={2} season={"Fall"} courses={courses} />
+                        <Semester year={3} season={"Fall"} courses={courses} />
+                        <Semester year={4} season={"Fall"} courses={courses} />
                     </div>
                     <div className="col">
                         <Semester year={1} season={"Spring"} courses={courses} />
                         <Semester year={2} season={"Spring"} courses={courses} />
+                        <Semester year={3} season={"Spring"} courses={courses} />
+                        <Semester year={4} season={"Spring"} courses={courses} />
                     </div>
                 </div>
             </div>
