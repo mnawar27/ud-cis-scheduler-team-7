@@ -10,7 +10,7 @@ export function Semester(props:{year: number, season: string, courses: Course[]}
     return <div className={"semester"}>
         <div><h5>Year {props.year} {props.season} Semester </h5></div>
         <br/>
-        <ul>{courseList} <button onClick={()=>clearSemester()}>Clear courses</button></ul>
+        <ul>{courseList} <button className="btn clear" onClick={()=>clearSemester()}>Clear courses</button></ul>
     </div>
     ;
 }
