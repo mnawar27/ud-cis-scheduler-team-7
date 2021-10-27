@@ -1,28 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Components/Menu.css";
+import COURSES from "./Assets/courses.json";
 import {Menu} from "./Components/Menu";
 import "./Components/Semester.css";
 import { Semester } from "./Components/Semester";
 import "./Components/Welcome.css";
 import { Welcome } from "./Components/Welcome";
+import { ControlPanel } from "./Components/ControlPanel";
 import Course from "./Interfaces/Course";
 import "./App.css";
 import "./Components/Semester.css";
 import "./Components/Menu.css";
+import { Button } from "react-bootstrap";
 //comment to force a commit
 function App(): JSX.Element {
-    const Cisc108: Course = {
-        name: "Cisc 108",
-        credits: 3,
-    };
-    const Cisc181: Course = {
-        name: "Cisc181",
-        credits: 3,
-        prereq: Cisc108,
-    };
-    const courses = [Cisc108, Cisc181];
+    const [currentCourse, setCurrentCourse] = useState<Course>(COURSES[0] as Course);
+    const [course, setCourse] = useState<Course[]>(COURSES);
     return (
         <div className="App">
             <Welcome />
@@ -37,16 +32,44 @@ function App(): JSX.Element {
                         <Menu />
                     </div>
                     <div className="col">
-                        <Semester year={1} season={"Fall"} courses={courses} />
-                        <Semester year={2} season={"Fall"} courses={courses} />
-                        <Semester year={3} season={"Fall"} courses={courses} />
-                        <Semester year={4} season={"Fall"} courses={courses} />
+                        <Semester
+                            //year = {1} 
+                            //season = {"Fall"} 
+                            course = {currentCourse}/>
+                        <Semester 
+                            //year={2} 
+                            //season={"Fall"} 
+                            course={currentCourse}/>
+                        <Semester 
+                            //year={3} 
+                            //season={"Fall"} 
+                            course={currentCourse}/>
+                        <Semester 
+                            //year={4} 
+                            //season={"Fall"} 
+                            course={currentCourse}/>
+                        <div className="row">
+                            <ControlPanel
+                                setCourse={setCurrentCourse}/>
+                        </div>
                     </div>
                     <div className="col">
-                        <Semester year={1} season={"Spring"} courses={courses} />
-                        <Semester year={2} season={"Spring"} courses={courses} />
-                        <Semester year={3} season={"Spring"} courses={courses} />
-                        <Semester year={4} season={"Spring"} courses={courses} />
+                        <Semester 
+                            //year={1} 
+                            //season={"Spring"} 
+                            course={currentCourse} />
+                        <Semester 
+                            //year={2} 
+                            //season={"Spring"} 
+                            course={currentCourse} />
+                        <Semester 
+                            //year={3} 
+                            //season={"Spring"} 
+                            course={currentCourse} />
+                        <Semester 
+                            //year={4} 
+                            //season={"Spring"} 
+                            course={currentCourse} />
                     </div>
                 </div>
             </div>
