@@ -1,16 +1,35 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import Course from "../Interfaces/Course";
+import COURSES from "../Assets/courses.json";
 
-export function Semester(props:{year: number, season: string, courses: Course[]}): JSX.Element{
-    const [courses,setCourses]=useState(props.courses);
-    const courseList=courses.map((Course)=><li key={Course.name}><p>{Course.name}   Credits:{Course.credits}</p></li>);
+export function Semester({ course }: {course: Course}): JSX.Element{
+    const [sliceStart, setSliceStart] = useState(0);
+    const [sliceEnd, setSliceEnd] = useState(4);
+
     function clearSemester(){
-        setCourses([]);
+        setSliceStart(0);
+        setSliceEnd(0);
     }
+
     return <div className={"semester"}>
-        <div><h5>Year {props.year} {props.season} Semester </h5></div>
-        <br/>
-        <ul>{courseList} <button className="btn clear" onClick={()=>clearSemester()}>Clear courses</button></ul>
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Credits</td>
+            </tr>
+            {COURSES.slice(sliceStart,sliceEnd).map((Course,i)=> {
+                return (
+                    <tr key={i}>
+                        <td scope="col">{course.name}</td>
+                        <td scope="col">{course.description}</td>
+                        <td scope="col">{course.credits}</td>
+                    </tr>
+                );
+            })}
+        </table>
+        <Button className="btn btn-light btn-sm" onClick={()=>clearSemester()}>Clear courses</Button>
     </div>
     ;
 }
