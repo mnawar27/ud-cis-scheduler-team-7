@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import Course from "../Interfaces/Course";
 import COURSES from "../Assets/courses.json";

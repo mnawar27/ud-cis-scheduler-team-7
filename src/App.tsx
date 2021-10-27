@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Components/Menu.css";
@@ -13,11 +14,9 @@ import Course from "./Interfaces/Course";
 import "./App.css";
 import "./Components/Semester.css";
 import "./Components/Menu.css";
-import { Button } from "react-bootstrap";
 //comment to force a commit
 function App(): JSX.Element {
     const [currentCourse, setCurrentCourse] = useState<Course>(COURSES[0] as Course);
-    const [course, setCourse] = useState<Course[]>(COURSES);
     return (
         <div className="App">
             <Welcome />
