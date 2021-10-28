@@ -12,3 +12,7 @@ table, th, td {
     border-color: white;
     color: white;
 }
+Button {
+    margin-top: 10px;
+    margin-right: 10px;
+}
