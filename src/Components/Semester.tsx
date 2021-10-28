@@ -12,7 +12,7 @@ export function Semester(props:{course:Course;year:number;season:string}): JSX.E
         setSliceEnd(0);
     }
     function addCourse(){
-        const courseCopy=COURSES.slice(sliceStart,sliceEnd);
+        //const courseCopy=COURSES.slice(sliceStart,sliceEnd);
         setSliceEnd(sliceEnd+1);
     }
 
