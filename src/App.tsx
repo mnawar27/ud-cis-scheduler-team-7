@@ -35,7 +35,6 @@ function App(): JSX.Element {
                             year = {1}
                             season = {"Fall"} 
                             course = {currentCourse}/>
-
                         <Semester 
                             year={2} 
                             season={"Fall"} 
