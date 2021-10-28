@@ -20,7 +20,7 @@ export function Semester(props:{course:Course;year:number;season:string}): JSX.E
                 <td>Name</td>
                 <td>Credits</td>
             </tr>
-            {COURSES.slice(sliceStart,sliceEnd).map((Course,i)=> {
+            {COURSES.slice(sliceStart,sliceEnd).map((Course, i)=> {
                 return (
                     <tr key={i}>
                         <td scope="col">{props.course.name}</td>
