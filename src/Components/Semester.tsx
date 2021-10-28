@@ -8,11 +8,12 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
     const [sliceStart, setSliceStart] = useState(0);
     const [sliceEnd, setSliceEnd] = useState(4);
     const [popup,setPopup]=useState(false);
+    const [courses,setCourses]=useState(props.courses);
 
     function clearSemester(){
         //setSliceStart(0);
         //setSliceEnd(0);
-        props.setCurrentCourses([]);
+        setCourses([]);
     }
     function addCourse(){
         //const courseCopy=COURSES.slice(sliceStart,sliceEnd);
@@ -28,7 +29,7 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
                 <td>Name</td>
                 <td>Credits</td>
             </tr>
-            {COURSES.slice(sliceStart,sliceEnd).map((Course,i)=> {
+            {courses.slice().map((Course,i)=> {
                 return (
                     <tr key={i}>
                         <td scope="col">{Course.name}</td>
