@@ -11,6 +11,10 @@ export function Semester(props:{course:Course;year:number;season:string}): JSX.E
         setSliceStart(0);
         setSliceEnd(0);
     }
+    function addCourse(){
+        //const courseCopy=COURSES.slice(sliceStart,sliceEnd);
+        setSliceEnd(sliceEnd+1);
+    }
 
     return <div className={"semester"}>
         Year {props.year}   {props.season} Semester
@@ -23,14 +27,15 @@ export function Semester(props:{course:Course;year:number;season:string}): JSX.E
             {COURSES.slice(sliceStart,sliceEnd).map((Course, i)=> {
                 return (
                     <tr key={i}>
-                        <td scope="col">{props.course.name}</td>
-                        <td scope="col">{props.course.description}</td>
-                        <td scope="col">{props.course.credits}</td>
+                        <td scope="col">{Course.name}</td>
+                        <td scope="col">{Course.description}</td>
+                        <td scope="col">{Course.credits}</td>
                     </tr>
                 );
             })}
         </table>
         <Button className="btn btn-light btn-sm" onClick={()=>clearSemester()}>Clear courses</Button>
+        <Button className="btn btn-light btn-sm" onClick={()=>addCourse()}>Add course</Button>
     </div>
     ;
 }
