@@ -19,12 +19,12 @@ export function Semester({ course }: {course: Course}): JSX.Element{
                 <td>Name</td>
                 <td>Credits</td>
             </tr>
-            {COURSES.slice(sliceStart,sliceEnd).map((Course,i)=> {
+            {COURSES.slice(sliceStart,sliceEnd).map((Course, i)=> {
                 return (
                     <tr key={i}>
-                        <td scope="col">{course.name}</td>
-                        <td scope="col">{course.description}</td>
-                        <td scope="col">{course.credits}</td>
+                        <td scope="col">{Course.name}</td>
+                        <td scope="col">{Course.description}</td>
+                        <td scope="col">{Course.credits}</td>
                     </tr>
                 );
             })}
