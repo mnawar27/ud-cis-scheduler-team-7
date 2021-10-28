@@ -4,14 +4,15 @@ import Course from "../Interfaces/Course";
 import COURSES from "../Assets/courses.json";
 import {AddCourseMenu} from "./AddCourseMenu";
 
-export function Semester(props:{course:Course;year:number;season:string}): JSX.Element{
+export function Semester(props:{courses:Course[];year:number;season:string;setCurrentCourses:(arg0:Course[])=>void}): JSX.Element{
     const [sliceStart, setSliceStart] = useState(0);
     const [sliceEnd, setSliceEnd] = useState(4);
     const [popup,setPopup]=useState(false);
 
     function clearSemester(){
-        setSliceStart(0);
-        setSliceEnd(0);
+        //setSliceStart(0);
+        //setSliceEnd(0);
+        props.setCurrentCourses([]);
     }
     function addCourse(){
         //const courseCopy=COURSES.slice(sliceStart,sliceEnd);

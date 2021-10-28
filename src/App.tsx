@@ -16,7 +16,7 @@ import "./Components/Semester.css";
 import "./Components/Menu.css";
 //comment to force a commit
 function App(): JSX.Element {
-    const [currentCourse, setCurrentCourse] = useState<Course>(COURSES[0] as Course);
+    const [currentCourses, setCurrentCourses] = useState([COURSES[0],COURSES[1],COURSES[2],COURSES[3]]as Course[]);
     return (
         <div className="App">
             <Welcome />
@@ -34,42 +34,50 @@ function App(): JSX.Element {
                         <Semester 
                             year = {1}
                             season = {"Fall"} 
-                            course = {currentCourse}/>
+                            courses = {currentCourses}
+                            setCurrentCourses={setCurrentCourses}/>
 
                         <Semester 
                             year={2} 
                             season={"Fall"} 
-                            course={currentCourse}/>
+                            courses={currentCourses}
+                            setCurrentCourses={setCurrentCourses}/>
                         <Semester 
                             year={3} 
                             season={"Fall"} 
-                            course={currentCourse}/>
+                            courses={currentCourses}
+                            setCurrentCourses={setCurrentCourses}/>
                         <Semester 
                             year={4} 
                             season={"Fall"} 
-                            course={currentCourse}/>
+                            courses={currentCourses}
+                            setCurrentCourses={setCurrentCourses}/>
                         <div className="row">
-                            <ControlPanel
-                                setCourse={setCurrentCourse}/>
+                            {/*  <ControlPanel
+                               setCourse={setCurrentCourses}/>*/}
                         </div>
                     </div>
                     <div className="col">
                         <Semester 
                             year={1} 
                             season={"Spring"} 
-                            course={currentCourse} />
+                            courses={currentCourses}
+                            setCurrentCourses={setCurrentCourses} />
                         <Semester 
                             year={2} 
                             season={"Spring"} 
-                            course={currentCourse} />
+                            courses={currentCourses}
+                            setCurrentCourses={setCurrentCourses} />
                         <Semester 
                             year={3} 
                             season={"Spring"} 
-                            course={currentCourse} />
+                            courses={currentCourses}
+                            setCurrentCourses={setCurrentCourses} />
                         <Semester 
                             year={4} 
                             season={"Spring"} 
-                            course={currentCourse} />
+                            courses={currentCourses}
+                            setCurrentCourses={setCurrentCourses} />
                     </div>
                 </div>
             </div>
