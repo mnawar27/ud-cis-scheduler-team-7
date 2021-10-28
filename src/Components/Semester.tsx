@@ -22,9 +22,9 @@ export function Semester({ course }: {course: Course}): JSX.Element{
             {COURSES.slice(sliceStart,sliceEnd).map((Course, i)=> {
                 return (
                     <tr key={i}>
-                        <td scope="col">{Course.name}</td>
-                        <td scope="col">{Course.description}</td>
-                        <td scope="col">{Course.credits}</td>
+                        <td scope="col">{course.name}</td>
+                        <td scope="col">{course.description}</td>
+                        <td scope="col">{course.credits}</td>
                     </tr>
                 );
             })}
