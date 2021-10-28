@@ -39,7 +39,7 @@ export function Semester(props:{course:Course;year:number;season:string}): JSX.E
         </table>
         <Button className="btn btn-light btn-sm" onClick={()=>clearSemester()}>Clear courses</Button>
         <Button className="btn btn-light btn-sm" onClick={()=>setPopup(true)}>Add course</Button>
-        <AddCourseMenu trigger={popup}></AddCourseMenu>
+        <AddCourseMenu trigger={popup} setTrigger={setPopup}></AddCourseMenu>
     </div>
     ;
 }
