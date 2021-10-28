@@ -53,8 +53,8 @@ function App(): JSX.Element {
                             courses={currentCourses}
                             setCurrentCourses={setCurrentCourses}/>
                         <div className="row">
-                            {/*  <ControlPanel
-                               setCourse={setCurrentCourses}/>*/}
+                            <ControlPanel
+                                setCourse={setCurrentCourses}/>
                         </div>
                     </div>
                     <div className="col">

@@ -2,13 +2,14 @@ import React from "react";
 import COURSES from "../Assets/courses.json";
 import Course from "../Interfaces/Course";
 
-export function AddCourseMenu(props:{trigger:boolean ; setTrigger:(arg0:boolean)=>void}): JSX.Element{
+export function AddCourseMenu(props:{trigger:boolean;courses:Course[] ; setTrigger:(arg0:boolean)=>void, setCourses:(arg0:Course[])=>void}): JSX.Element{
 
     function addCourse(course:Course){
+        props.setCourses([...props.courses,course]);
         props.setTrigger(false);
 
     }
-    return props.trigger ?(
+    return props.trigger ?
         <div className="menu">
             <h3>Course list</h3>
             <ul className="nav navbar-nav">
@@ -17,8 +18,8 @@ export function AddCourseMenu(props:{trigger:boolean ; setTrigger:(arg0:boolean)
                 })}
             </ul>
         </div>
-    ):<div>
+        :<div>
 
-    </div>;
+        </div>;
     
 }
