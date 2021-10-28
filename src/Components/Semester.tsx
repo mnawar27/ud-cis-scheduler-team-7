@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import Course from "../Interfaces/Course";
 import COURSES from "../Assets/courses.json";
 
-export function Semester({ course }: {course: Course}): JSX.Element{
+export function Semester(props:{course:Course;year:number;season:string}): JSX.Element{
     const [sliceStart, setSliceStart] = useState(0);
     const [sliceEnd, setSliceEnd] = useState(4);
 
@@ -13,6 +13,7 @@ export function Semester({ course }: {course: Course}): JSX.Element{
     }
 
     return <div className={"semester"}>
+        Year {props.year}   {props.season} Semester
         <table>
             <tr>
                 <td>ID</td>
@@ -22,9 +23,9 @@ export function Semester({ course }: {course: Course}): JSX.Element{
             {COURSES.slice(sliceStart,sliceEnd).map((Course, i)=> {
                 return (
                     <tr key={i}>
-                        <td scope="col">{course.name}</td>
-                        <td scope="col">{course.description}</td>
-                        <td scope="col">{course.credits}</td>
+                        <td scope="col">{props.course.name}</td>
+                        <td scope="col">{props.course.description}</td>
+                        <td scope="col">{props.course.credits}</td>
                     </tr>
                 );
             })}
