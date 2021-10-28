@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import Course from "../Interfaces/Course";
-import COURSES from "../Assets/courses.json";
+import {AddCourseMenu} from "./AddCourseMenu";
 
-export function Semester(props:{course:Course;year:number;season:string}): JSX.Element{
-    const [sliceStart, setSliceStart] = useState(0);
-    const [sliceEnd, setSliceEnd] = useState(4);
+export function Semester(props:{courses:Course[];year:number;season:string;setCurrentCourses:(arg0:Course[])=>void}): JSX.Element{
+    const [popup,setPopup]=useState(false);
+    const [courses,setCourses]=useState(props.courses);
 
     function clearSemester(){
-        setSliceStart(0);
-        setSliceEnd(0);
-    }
-    function addCourse(){
-        //const courseCopy=COURSES.slice(sliceStart,sliceEnd);
-        setSliceEnd(sliceEnd+1);
+        setCourses([]);
     }
 
     return <div className={"semester"}>
@@ -24,7 +19,7 @@ export function Semester(props:{course:Course;year:number;season:string}): JSX.E
                 <td>Name</td>
                 <td>Credits</td>
             </tr>
-            {COURSES.slice(sliceStart,sliceEnd).map((Course, i)=> {
+            {courses.slice().map((Course,i)=> {
                 return (
                     <tr key={i}>
                         <td scope="col">{Course.name}</td>
@@ -35,7 +30,8 @@ export function Semester(props:{course:Course;year:number;season:string}): JSX.E
             })}
         </table>
         <Button className="btn btn-light btn-sm" onClick={()=>clearSemester()}>Clear courses</Button>
-        <Button className="btn btn-light btn-sm" onClick={()=>addCourse()}>Add course</Button>
+        <Button className="btn btn-light btn-sm" onClick={()=>setPopup(true)}>Add course</Button>
+        <AddCourseMenu trigger={popup} setTrigger={setPopup} setCourses={setCourses} courses={courses}></AddCourseMenu>
     </div>
     ;
 }
