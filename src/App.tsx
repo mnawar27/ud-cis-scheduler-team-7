@@ -31,21 +31,22 @@ function App(): JSX.Element {
                         <Menu />
                     </div>
                     <div className="col">
-                        <Semester
-                            //year = {1} 
-                            //season = {"Fall"} 
+                        <Semester 
+                            year = {1}
+                            season = {"Fall"} 
                             course = {currentCourse}/>
+
                         <Semester 
-                            //year={2} 
-                            //season={"Fall"} 
+                            year={2} 
+                            season={"Fall"} 
                             course={currentCourse}/>
                         <Semester 
-                            //year={3} 
-                            //season={"Fall"} 
+                            year={3} 
+                            season={"Fall"} 
                             course={currentCourse}/>
                         <Semester 
-                            //year={4} 
-                            //season={"Fall"} 
+                            year={4} 
+                            season={"Fall"} 
                             course={currentCourse}/>
                         <div className="row">
                             <ControlPanel
@@ -54,20 +55,20 @@ function App(): JSX.Element {
                     </div>
                     <div className="col">
                         <Semester 
-                            //year={1} 
-                            //season={"Spring"} 
+                            year={1} 
+                            season={"Spring"} 
                             course={currentCourse} />
                         <Semester 
-                            //year={2} 
-                            //season={"Spring"} 
+                            year={2} 
+                            season={"Spring"} 
                             course={currentCourse} />
                         <Semester 
-                            //year={3} 
-                            //season={"Spring"} 
+                            year={3} 
+                            season={"Spring"} 
                             course={currentCourse} />
                         <Semester 
-                            //year={4} 
-                            //season={"Spring"} 
+                            year={4} 
+                            season={"Spring"} 
                             course={currentCourse} />
                     </div>
                 </div>
