@@ -23,3 +23,4 @@ export function AddCourseMenu(props:{trigger:boolean;courses:Course[] ; setTrigg
         </div>;
     
 }
+
