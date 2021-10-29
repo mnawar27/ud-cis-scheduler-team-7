@@ -1,5 +1,5 @@
 .App {
-  background-color: #12232E;
+  background-color: #212221;
   color: white;
 }
 
@@ -7,9 +7,17 @@
   min-height: auto;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 20px;
   align-items: left;
   justify-content: left;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+.row {
+  display: flex;
+}
+
+.col-3 {
+  background-color: #00539F;
+  margin-right: 10px;
 }

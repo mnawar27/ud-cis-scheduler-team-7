@@ -1,8 +1,10 @@
 .menu {
-    display: flex;
-    justify-content: center;
-    flex-flow: column-wrap;
-    background-color: #203647;
+    scroll-behavior: smooth;
+    padding: 15px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    white-space: nowrap;
+    height: auto;
 }
 
 ul {
