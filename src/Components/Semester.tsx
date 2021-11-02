@@ -10,6 +10,16 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
     function clearSemester(){
         setCourses([]);
     }
+    function removeCourse(course:Course){
+        const copy1:Course[]=[...courses];
+        for (let i=0;i<courses.length;i++){
+            if(course.id==courses[i].id){
+                copy1.splice(i,1);
+
+            }
+        }
+        setCourses(copy1);
+    }
 
     return <div className={"semester"}>
         Year {props.year}   {props.season} Semester
@@ -18,6 +28,7 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
                 <td>ID</td>
                 <td>Name</td>
                 <td>Credits</td>
+                
             </tr>
             {courses.slice().map((Course,i)=> {
                 return (
@@ -25,6 +36,8 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
                         <td scope="col">{Course.name}</td>
                         <td scope="col">{Course.description}</td>
                         <td scope="col">{Course.credits}</td>
+                        <td scope="col"><button className="btn btn-light btn-sm" onClick={()=>removeCourse(Course)}>Remove course</button></td>
+
                     </tr>
                 );
             })}
