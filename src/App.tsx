@@ -14,9 +14,19 @@ import Course from "./Interfaces/Course";
 import "./App.css";
 import "./Components/Semester.css";
 import "./Components/Menu.css";
-//comment to force a commit
 function App(): JSX.Element {
     const [currentCourses, setCurrentCourses] = useState([COURSES[0],COURSES[1],COURSES[2],COURSES[3]]as Course[]);
+    const [fallsemesters, setFallSemesters]=useState([1,2,3,4]);
+    const [springsemesters, setSpringSemesters]=useState([1,2,3,4]);
+    function addFallSemester(semesters:number[]){
+        const i:number=semesters.length;
+        setFallSemesters([...semesters,i+1]);
+    }
+    function addSpringSemester(semesters:number[]){
+        const i:number=semesters.length;
+        setSpringSemesters([...semesters,i+1]);
+    }
+
     return (
         <div className="App">
             <Welcome />
@@ -31,53 +41,30 @@ function App(): JSX.Element {
                         <Menu />
                     </div>
                     <div className="col">
-                        <Semester 
-                            year = {1}
-                            season = {"Fall"} 
-                            courses = {currentCourses}
-                            setCurrentCourses={setCurrentCourses}/>
-
-                        <Semester 
-                            year={2} 
-                            season={"Fall"} 
-                            courses={currentCourses}
-                            setCurrentCourses={setCurrentCourses}/>
-                        <Semester 
-                            year={3} 
-                            season={"Fall"} 
-                            courses={currentCourses}
-                            setCurrentCourses={setCurrentCourses}/>
-                        <Semester 
-                            year={4} 
-                            season={"Fall"} 
-                            courses={currentCourses}
-                            setCurrentCourses={setCurrentCourses}/>
+                        <button className="btn btn-light btn-sm" onClick={()=>addFallSemester(fallsemesters)}>Add fall Semester</button>
+                        {fallsemesters.map((i)=>{
+                            return(
+                                <Semester key={i}
+                                    year = {i}
+                                    season = {"Fall"} 
+                                    courses = {currentCourses}
+                                    setCurrentCourses={setCurrentCourses}/>);
+                        })}
                         <div className="row">
                             <ControlPanel
                                 setCourse={setCurrentCourses}/>
                         </div>
                     </div>
                     <div className="col">
-                        <Semester 
-                            year={1} 
-                            season={"Spring"} 
-                            courses={currentCourses}
-                            setCurrentCourses={setCurrentCourses} />
-                        <Semester 
-                            year={2} 
-                            season={"Spring"} 
-                            courses={currentCourses}
-                            setCurrentCourses={setCurrentCourses} />
-                        <Semester 
-                            year={3} 
-                            season={"Spring"} 
-                            courses={currentCourses}
-                            setCurrentCourses={setCurrentCourses} />
-                        <Semester 
-                            year={4} 
-                            season={"Spring"} 
-                            courses={currentCourses}
-                            setCurrentCourses={setCurrentCourses} />
+                        <button className="btn btn-light btn-sm" onClick={()=>addSpringSemester(springsemesters)}>Add Spring Semester</button>
+                        {springsemesters.map((i)=>{
+                            return(
+                                <Semester key={i}
+                                    year = {i}
+                                    season = {"Fall"} 
+                                    courses = {currentCourses}
+                                    setCurrentCourses={setCurrentCourses}/>);
+                        })}
                     </div>
                 </div>
             </div>
@@ -86,4 +73,3 @@ function App(): JSX.Element {
 }
 
 export default App;
-// commment to force a commit
