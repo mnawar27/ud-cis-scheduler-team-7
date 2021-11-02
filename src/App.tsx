@@ -17,6 +17,13 @@ import "./Components/Menu.css";
 //comment to force a commit
 function App(): JSX.Element {
     const [currentCourses, setCurrentCourses] = useState([COURSES[0],COURSES[1],COURSES[2],COURSES[3]]as Course[]);
+    function createSemester(year:number,season:string){
+        return <Semester 
+        year = {1}
+        season = {"Fall"} 
+        courses = {currentCourses}
+        setCurrentCourses={setCurrentCourses}/>
+    }
     return (
         <div className="App">
             <Welcome />
