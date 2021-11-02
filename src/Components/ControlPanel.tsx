@@ -14,6 +14,7 @@ export function ControlPanel({setCourse}:
     return(
         <div className="control">
             <Button onClick={setDefault} className="btn btn-light">Set default classes</Button>
+            
         </div>
     );
 }
