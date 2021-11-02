@@ -20,6 +20,7 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
         }
         setCourses(copy1);
     }
+    
 
     return <div className={"semester"}>
         Year {props.year}   {props.season} Semester

@@ -26,7 +26,16 @@ function App(): JSX.Element {
         const i:number=semesters.length;
         setSpringSemesters([...semesters,i+1]);
     }
-
+    function removeFallSemester(semesters:number[]){
+        const copy:number[]=[...semesters];
+        copy.splice(semesters.length-1,1);
+        setFallSemesters(copy);
+    }
+    function removeSpringSemester(semesters:number[]){
+        const copy:number[]=[...semesters];
+        copy.splice(semesters.length-1,1);
+        setSpringSemesters(copy);
+    }
     return (
         <div className="App">
             <Welcome />
@@ -41,7 +50,8 @@ function App(): JSX.Element {
                         <Menu />
                     </div>
                     <div className="col">
-                        <button className="btn btn-light btn-sm" onClick={()=>addFallSemester(fallsemesters)}>Add fall Semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>addFallSemester(fallsemesters)}>Add Fall Semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>removeFallSemester(fallsemesters)}>Remove last Fall Semester</button>
                         {fallsemesters.map((i)=>{
                             return(
                                 <Semester key={i}
@@ -57,6 +67,7 @@ function App(): JSX.Element {
                     </div>
                     <div className="col">
                         <button className="btn btn-light btn-sm" onClick={()=>addSpringSemester(springsemesters)}>Add Spring Semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>removeSpringSemester(springsemesters)}>Remove last Spring Semester</button>
                         {springsemesters.map((i)=>{
                             return(
                                 <Semester key={i}
