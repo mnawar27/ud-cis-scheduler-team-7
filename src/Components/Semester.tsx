@@ -18,6 +18,7 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
                 <td>ID</td>
                 <td>Name</td>
                 <td>Credits</td>
+                
             </tr>
             {courses.slice().map((Course,i)=> {
                 return (
@@ -25,6 +26,8 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
                         <td scope="col">{Course.name}</td>
                         <td scope="col">{Course.description}</td>
                         <td scope="col">{Course.credits}</td>
+                        <td scope="col"><button className="btn btn-light btn-sm">Remove course</button></td>
+
                     </tr>
                 );
             })}
