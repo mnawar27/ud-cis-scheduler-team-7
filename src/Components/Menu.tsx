@@ -1,28 +1,24 @@
 import React, {useState} from "react";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import COURSES from "../Assets/courses.json";
-
+ 
 export function Menu(): JSX.Element{
-    
     return(
         <div className="menu">
             <h3>Course list</h3>
             <h6>Incomplete Requirements</h6>
             <ul className="nav navbar-nav">
                 {COURSES.map((Course, i) => {
-                    const[edit, setEdit] = useState(COURSES[i]["description"]);
-                    function handleOnClick(newName: string) {
-                        //have some type of input field that modifies newName
-                        //enter removes input field
-                        //then we call the line below
-                        setEdit(newName);
-                    }
-                  
+                    const[edit, setEdit] = useState(true);
                     return (
-                    
-                        <li key={i}><strong >{Course.name}</strong> {Course.description} 
-                            <li><Button className="btn btn-light btn-sm"> Edit </Button></li>
-                        </li>
+                        <div key={i}>
+                            <Form.Group>
+                                <Form.Label><strong>{Course.name}</strong></Form.Label>
+                                <Form.Control defaultValue={Course.description} disabled={edit}/>
+                            </Form.Group>
+                            <Button onClick={()=>setEdit(false)}>Click to Edit</Button>
+                            <Button disabled={edit} onClick={()=>setEdit(true)}>Submit</Button>
+                        </div>
                     );
                 })}
             </ul>
@@ -33,3 +29,4 @@ export function Menu(): JSX.Element{
         </div>
     );
 }
+
