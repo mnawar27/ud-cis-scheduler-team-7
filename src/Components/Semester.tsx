@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import Course from "../Interfaces/Course";
 import {AddCourseMenu} from "./AddCourseMenu";
 
-export function Semester(props:{courses:Course[];year:number;season:string;setCurrentCourses:(arg0:Course[])=>void}): JSX.Element{
+export function Semester(props:{courses:Course[];year:number;season:string;setSemesters:(arg0:number[])=>void;setCurrentCourses:(arg0:Course[])=>void}): JSX.Element{
     const [popup,setPopup]=useState(false);
     const [courses,setCourses]=useState(props.courses);
 
@@ -20,6 +20,7 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
         }
         setCourses(copy1);
     }
+    
 
     return <div className={"semester"}>
         Year {props.year}   {props.season} Semester
