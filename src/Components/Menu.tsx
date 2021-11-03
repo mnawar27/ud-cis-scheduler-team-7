@@ -1,34 +1,23 @@
 import React, {useState} from "react";
 import { Button, Form } from "react-bootstrap";
 import COURSES from "../Assets/courses.json";
- 
 export function Menu(): JSX.Element{
-
-    function saveEdit() {
-        //update classes at all other parts of website
-        
-        console.log("hi");
-    }
-
+    //const[edit, setEdit] = useState(true);
     return(
         <div className="menu">
             <h3>Course list</h3>
             <h6>Incomplete Requirements</h6>
             <ul className="nav navbar-nav">
                 {COURSES.map((Course, i) => {
-                    const[edit, setEdit] = useState(COURSES[i]["description"]);
+                    const[edit, setEdit] = useState(true);
                     return (
                         <div key={i}>
                             <Form.Group>
-                                <Form.Label><strong>{Course.name} </strong></Form.Label>
-                                <Form.Label> {edit}</Form.Label>
-                                <Form.Control 
-                                    value={edit}
-                                    onChange={(ev:React.ChangeEvent<HTMLTextAreaElement>) => setEdit(ev.target.value)}/>
+                                <Form.Label><strong>{Course.name}</strong></Form.Label>
+                                <Form.Control defaultValue={Course.description} disabled={edit}/>
                             </Form.Group>
-                            <Button onClick={()=>setEdit("")}>Click to Edit</Button>
-                            <Button onClick={saveEdit}>Submit</Button>
-    
+                            <Button onClick={()=>setEdit(false)}>Click to Edit</Button>
+                            <Button disabled={edit} onClick={()=>setEdit(true)}>Submit</Button>
                         </div>
                     );
                 })}
@@ -40,4 +29,3 @@ export function Menu(): JSX.Element{
         </div>
     );
 }
-
