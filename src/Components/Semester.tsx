@@ -36,8 +36,10 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
             {courses.slice().map((Course,i)=> {
                 const prereqs:string[]=[];
                 for(let i=0;i<COURSES.length;i++){
-                    if(COURSES[i].prereq==Course.name){
-                        prereqs.push(COURSES[i].name);
+                    if(COURSES[i].prereq!=null){
+                        if(COURSES[i].prereq?.includes(Course.name)){
+                            prereqs.push(COURSES[i].name);
+                        }
                     }
                 }
                 return (
