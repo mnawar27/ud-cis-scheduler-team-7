@@ -9,7 +9,6 @@ import "./Components/Semester.css";
 import { Semester } from "./Components/Semester";
 import "./Components/Welcome.css";
 import { Welcome } from "./Components/Welcome";
-import { ControlPanel } from "./Components/ControlPanel";
 import Course from "./Interfaces/Course";
 import "./App.css";
 import "./Components/Semester.css";
@@ -36,9 +35,13 @@ function App(): JSX.Element {
         copy.splice(semesters.length-1,1);
         setSpringSemesters(copy);
     }
-    function clearSemester(){
-        setFallSemesters([0]);
-        setSpringSemesters([0]);
+    function clearSemester(fsemesters: number[], ssemesters: number[]){
+        const fcopy: number[] = [...fsemesters];
+        const scopy: number[] = [...ssemesters];
+        fcopy.splice(0,fsemesters.length);
+        scopy.splice(0,ssemesters.length);
+        setFallSemesters(fcopy);
+        setSpringSemesters(scopy);
     }
     return (
         <div className="App">
@@ -58,7 +61,7 @@ function App(): JSX.Element {
                         <button className="btn btn-light btn-sm" onClick={()=>removeFallSemester(fallsemesters)}>Remove last fall semester</button>
                         {fallsemesters.map((i)=>{
                             return(
-                                <Semester key={i}
+                                <Semester key = {i}
                                     year = {i}
                                     season = {"Fall"} 
                                     courses = {currentCourses}
@@ -66,7 +69,7 @@ function App(): JSX.Element {
                         })}
                         <div className="row">
                             <div className="col">
-                                <button className="btn btn-light btn-sm" onClick={()=>clearSemester()}>Clear all semesters</button>
+                                <button className="btn btn-light btn-sm" onClick={()=>clearSemester(fallsemesters,springsemesters)}>Clear all semesters</button>
                                 <button className="btn btn-light btn-sm">Set default plan</button>
                             </div>
                         </div>
