@@ -18,23 +18,27 @@ function App(): JSX.Element {
     const [currentCourses, setCurrentCourses] = useState([COURSES[0],COURSES[1],COURSES[2],COURSES[3]]as Course[]);
     const [fallsemesters, setFallSemesters]=useState([1,2,3,4]);
     const [springsemesters, setSpringSemesters]=useState([1,2,3,4]);
-    function addFallSemester(semesters:number[]){
-        const i:number=semesters.length;
+    function addFallSemester(semesters: number[]){
+        const i: number = semesters.length;
         setFallSemesters([...semesters,i+1]);
     }
-    function addSpringSemester(semesters:number[]){
-        const i:number=semesters.length;
+    function addSpringSemester(semesters: number[]){
+        const i: number = semesters.length;
         setSpringSemesters([...semesters,i+1]);
     }
-    function removeFallSemester(semesters:number[]){
-        const copy:number[]=[...semesters];
+    function removeFallSemester(semesters: number[]){
+        const copy: number[] = [...semesters];
         copy.splice(semesters.length-1,1);
         setFallSemesters(copy);
     }
-    function removeSpringSemester(semesters:number[]){
-        const copy:number[]=[...semesters];
+    function removeSpringSemester(semesters: number[]){
+        const copy: number[] = [...semesters];
         copy.splice(semesters.length-1,1);
         setSpringSemesters(copy);
+    }
+    function clearSemester(){
+        setFallSemesters([0]);
+        setSpringSemesters([0]);
     }
     return (
         <div className="App">
@@ -50,8 +54,8 @@ function App(): JSX.Element {
                         <Menu />
                     </div>
                     <div className="col">
-                        <button className="btn btn-light btn-sm" onClick={()=>addFallSemester(fallsemesters)}>Add Fall Semester</button>
-                        <button className="btn btn-light btn-sm" onClick={()=>removeFallSemester(fallsemesters)}>Remove last Fall Semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>addFallSemester(fallsemesters)}>Add fall semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>removeFallSemester(fallsemesters)}>Remove last fall semester</button>
                         {fallsemesters.map((i)=>{
                             return(
                                 <Semester key={i}
@@ -61,20 +65,22 @@ function App(): JSX.Element {
                                     setCurrentCourses={setCurrentCourses}/>);
                         })}
                         <div className="row">
-                            <ControlPanel
-                                setCourse={setCurrentCourses}/>
+                            <div className="col">
+                                <button className="btn btn-light btn-sm" onClick={()=>clearSemester()}>Clear all semesters</button>
+                                <button className="btn btn-light btn-sm">Set default plan</button>
+                            </div>
                         </div>
                     </div>
                     <div className="col">
-                        <button className="btn btn-light btn-sm" onClick={()=>addSpringSemester(springsemesters)}>Add Spring Semester</button>
-                        <button className="btn btn-light btn-sm" onClick={()=>removeSpringSemester(springsemesters)}>Remove last Spring Semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>addSpringSemester(springsemesters)}>Add spring semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>removeSpringSemester(springsemesters)}>Remove last spring semester</button>
                         {springsemesters.map((i)=>{
                             return(
-                                <Semester key={i}
+                                <Semester key = {i}
                                     year = {i}
                                     season = {"Fall"} 
                                     courses = {currentCourses}
-                                    setCurrentCourses={setCurrentCourses}/>);
+                                    setCurrentCourses = {setCurrentCourses}/>);
                         })}
                     </div>
                 </div>
