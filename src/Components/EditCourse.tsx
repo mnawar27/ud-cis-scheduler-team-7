@@ -1,7 +1,7 @@
 import React, { useState } from "react";
- 
 interface IProps{
    editTmpId:number;
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
    editAddCourse: (tmpCourse: any) => void
 }
  
@@ -10,11 +10,12 @@ const EditCourse:React.FC<IProps> = ({editTmpId,editAddCourse}) => {
     const [description, setDescription] = useState("");
     const [credits, setCredits] = useState<number>();
     
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onSubmit = (e:any) =>{
         e.preventDefault();
         const id = editTmpId;
     
-        editAddCourse({id,name,description,credits}) ;//why parameter name has to be the same as interface type name
+        editAddCourse({id,name,description,credits}) ;
     };
     return (
         <div >
