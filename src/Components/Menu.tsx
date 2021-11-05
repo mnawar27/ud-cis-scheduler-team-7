@@ -1,25 +1,14 @@
-import React, {useState} from "react";
-import { Button, Form } from "react-bootstrap";
+import React from "react";
 import COURSES from "../Assets/courses.json";
+
 export function Menu(): JSX.Element{
-    //const[edit, setEdit] = useState(true);
     return(
         <div className="menu">
             <h3>Course list</h3>
             <h6>Incomplete Requirements</h6>
             <ul className="nav navbar-nav">
                 {COURSES.map((Course, i) => {
-                    const[edit, setEdit] = useState(true);
-                    return (
-                        <div key={i}>
-                            <Form.Group>
-                                <Form.Label><strong>{Course.name}</strong></Form.Label>
-                                <Form.Control defaultValue={Course.description} disabled={edit}/>
-                            </Form.Group>
-                            <Button onClick={()=>setEdit(false)}>Click to Edit</Button>
-                            <Button disabled={edit} onClick={()=>setEdit(true)}>Submit</Button>
-                        </div>
-                    );
+                    return <li key={i}><strong>{Course.name}</strong> {Course.description}</li>;
                 })}
             </ul>
             <hr/>
