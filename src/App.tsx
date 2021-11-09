@@ -43,6 +43,10 @@ function App(): JSX.Element {
         setFallSemesters(fcopy);
         setSpringSemesters(scopy);
     }
+    function setDefault(){
+        setFallSemesters([1,2,3,4]);
+        setSpringSemesters([1,2,3,4]);
+    }
     return (
         <div className="App">
             <Welcome />
@@ -60,7 +64,6 @@ function App(): JSX.Element {
                         <div className="row">
                             <div className="col">
                                 <button className="btn btn-light btn-sm" onClick={()=>clearSemester(fallsemesters,springsemesters)}>Clear all semesters</button>
-                                <button className="btn btn-light btn-sm">Set default plan</button>
                             </div>
                         </div>
                         <button className="btn btn-light btn-sm" onClick={()=>addFallSemester(fallsemesters)}>Add fall semester</button>
@@ -75,6 +78,11 @@ function App(): JSX.Element {
                         })}
                     </div>
                     <div className="col">
+                        <div className="row">
+                            <div className="col">
+                                <button className="btn btn-light btn-sm" onClick={()=>setDefault()}>Set default plan</button>
+                            </div>
+                        </div>
                         <button className="btn btn-light btn-sm" onClick={()=>addSpringSemester(springsemesters)}>Add spring semester</button>
                         <button className="btn btn-light btn-sm" onClick={()=>removeSpringSemester(springsemesters)}>Remove last spring semester</button>
                         {springsemesters.map((i)=>{
