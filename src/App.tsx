@@ -45,6 +45,9 @@ function App(): JSX.Element {
         const scopy: number[] = [...ssemesters];
         fcopy.splice(0,fsemesters.length);
         scopy.splice(0,ssemesters.length);
+        for(let i=0;i<COURSES.length;i++){
+            COURSES[i].enrolled=false;
+        }
         setFallSemesters(fcopy);
         setSpringSemesters(scopy);
     }
