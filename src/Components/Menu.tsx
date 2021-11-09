@@ -14,7 +14,6 @@ export function Menu(): JSX.Element{
         COURSES[i].credits=credits;
         setValue(value=>value+1);
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return(
         <div className="menu">
             <h3>Course list</h3>
