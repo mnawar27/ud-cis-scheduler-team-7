@@ -34,8 +34,8 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
         setEditTmpId(tmpCourse[0].id);
     };
   
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const editAddCourse=(tmpCourse:any)=>{
+    
+    const editAddCourse=(tmpCourse:Course)=>{
         let curIndex = 0;
         const curCourse = JSON.parse(JSON.stringify(courses));
         courses.forEach((course,index) => {
