@@ -1,17 +1,16 @@
 import React, { useState } from "react";
+import Course from "../Interfaces/Course";
 interface IProps{
    editTmpId:number;
-   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-   editAddCourse: (tmpCourse: any) => void
+   editAddCourse: (tmpCourse: Course) => void
 }
  
 const EditCourse:React.FC<IProps> = ({editTmpId,editAddCourse}) => {
     const [name,setName] = useState("");
     const [description, setDescription] = useState("");
-    const [credits, setCredits] = useState<number>();
+    const [credits, setCredits] = useState<number>(3);
     
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const onSubmit = (e:any) =>{
+    const onSubmit = (e:React.FormEvent) =>{
         e.preventDefault();
         const id = editTmpId;
     

@@ -17,6 +17,11 @@ function App(): JSX.Element {
     const [currentCourses, setCurrentCourses] = useState([COURSES[0],COURSES[1],COURSES[2],COURSES[3]]as Course[]);
     const [fallsemesters, setFallSemesters]=useState([1,2,3,4]);
     const [springsemesters, setSpringSemesters]=useState([1,2,3,4]);
+    function useForceUpdate(){
+        const [value,setValue] = useState(0); // integer state
+        value;
+        return () => setValue(value => value + 1); // update the state to force render
+    }
     function addFallSemester(semesters: number[]){
         const i: number = semesters.length;
         setFallSemesters([...semesters,i+1]);
@@ -49,7 +54,7 @@ function App(): JSX.Element {
             <div className="container-fluid">
                 <div className="row">
                     <header className="App-header">
-                        <h1>UD CIS Scheduler</h1>
+                        <h1>UD CIS Scheduler <button onClick={useForceUpdate()}>Update courses</button></h1>
                     </header>
                 </div>
                 <div className="row">
