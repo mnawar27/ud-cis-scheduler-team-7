@@ -13,6 +13,11 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
     const [editTmpId,setEditTmpId] = useState<number>(0);
 
     function clearSemester(){
+        let n:number;
+        for (let i=0;i<courses.length;i++){
+            n=courses[i].id;
+            COURSES[n-1].enrolled=false;
+        }
         setCourses([]);
     }
     function removeCourse(course:Course){
