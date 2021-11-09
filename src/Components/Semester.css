@@ -1,18 +1,36 @@
 .semester{
     overflow-x: scroll;
     color: #ffff;
-    margin-bottom: 25px;
-    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     position: relative; 
 }
+table {
+    max-width: 400px;
+}
 table, th, td {
-    padding: 5px;
+    padding: 2px;
     border-width: 2px;
+    border-color: gray;
     border-style: solid;
-    border-color: white;
     color: white;
 }
 Button {
     margin-top: 10px;
     margin-right: 10px;
+}
+#special {
+    background-color: #00539F;
+    color: white;
+    border: none;
+    width: 60px;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+#special2 {
+    background-color: #00539F;
+    color: white;
+    border: none;
+    width: 60px;
+    margin: 0px;
 }
