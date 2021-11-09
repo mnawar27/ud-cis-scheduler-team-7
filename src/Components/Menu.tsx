@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import COURSES from "../Assets/courses.json";
 
 
 export function Menu(): JSX.Element{
+    const[value,setValue]=useState(0);
+    value;
     function overrideCourse(i:number){
         COURSES[i].name="CISC0";
-        
+        setValue(value=>value+1);
     }
     return(
         <div className="menu">
