@@ -35,7 +35,9 @@ export function Menu(): JSX.Element{
             <h6>Incomplete Requirements</h6>
             <ul className="nav navbar-nav">
                 {COURSES.map((Course, i) => {
-                    return <li key={i}><strong>{Course.name}</strong> {Course.description} <button onClick={()=>overrideCourse(i)}> Override This Course</button></li>;
+                    if(Course.enrolled==false){
+                        return <li key={i}><strong>{Course.name}</strong> {Course.description} <button onClick={()=>overrideCourse(i)}> Override This Course</button></li>;
+                    }
                 })}
             </ul>
             <hr/>

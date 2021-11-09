@@ -5,7 +5,8 @@
     "description": "Introduction to Computer Science I",
     "credits": 3,
     "prereq": null,
-    "coreq": "MATH115, MATH117"
+    "coreq": "MATH115, MATH117",
+    "enrolled":false
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "description": "Introduction to Computer Science II",
     "credits": 3,
     "prereq": "CISC108/CISC106",
-    "coreq": "MATH221, MATH241"
+    "coreq": "MATH221, MATH241",
+    "enrolled":false
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "description": "Introduction to Systems Programming",
     "credits": 3,
     "prereq": "CISC108/CISC106",
-    "coreq": "MATH221, MATH241"
+    "coreq": "MATH221, MATH241",
+    "enrolled":false
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "description": "Data Structures",
     "credits": 3,
     "prereq": "CISC181",
-    "coreq": "MATH210, MATH241"
+    "coreq": "MATH210, MATH241",
+    "enrolled":false
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "description": "Machine Org. and Assembly Language",
     "credits": 3,
     "prereq": "CISC181",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "description": "Introduction to Software Engineering",
     "credits": 3,
     "prereq": "CISC220",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "description": "Automata Theory",
     "credits": 3,
     "prereq": "MATH210, CISC220",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 8,
@@ -61,7 +68,8 @@
     "description": "Logic for Programming",
     "credits": 3,
     "prereq": "CISC 220, MATH 210",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 9,
@@ -69,7 +77,8 @@
     "description": "Introduction to Algorithms",
     "credits": 3,
     "prereq": "MATH210, CISC220",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 10,
@@ -77,7 +86,8 @@
     "description": "Computers Ethics & Society",
     "credits": 3,
     "prereq": null,
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 11,
@@ -85,7 +95,8 @@
     "description": "Operating Systems",
     "credits": 3,
     "prereq": "CISC 220, CISC 260 or CPEG 222",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 12,
@@ -93,7 +104,8 @@
     "description": "Parallel Computing",
     "credits": 3,
     "prereq": "CISC220, CISC260",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 13,
@@ -101,7 +113,8 @@
     "description": "Computer Science Senior Design Project I",
     "credits": 3,
     "prereq": "CISC275, CISC320",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 14,
@@ -109,7 +122,8 @@
     "description": "Computer Science Senior Design Project II",
     "credits": 3,
     "prereq": "CISC498",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 15,
@@ -117,7 +131,8 @@
     "description": "Introduction to Engineering",
     "credits": 2,
     "prereq": null,
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 16,
@@ -125,7 +140,8 @@
     "description": "Seminar in Composition",
     "credits": 3,
     "prereq": null,
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 17,
@@ -133,7 +149,8 @@
     "description": "Written Communications in Business",
     "credits": 3,
     "prereq": "ENGL110",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 18,
@@ -141,7 +158,8 @@
     "description": "Technical Writing",
     "credits": 3,
     "prereq": "ENGL110",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 19,
@@ -149,7 +167,8 @@
     "description": "Statistical Methods",
     "credits": 4,
     "prereq": "MATH 210/MATH 230",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 20,
@@ -157,7 +176,8 @@
     "description": "Discrete Mathematics I",
     "credits": 3,
     "prereq": null,
-    "coreq": "MATH 241, MATH 242, MATH 232"
+    "coreq": "MATH 241, MATH 242, MATH 232",
+    "enrolled":false
   },
   {
     "id": 21,
@@ -165,7 +185,8 @@
     "description": "Analytic Geometry and Calculus A",
     "credits": 4,
     "prereq": "MATH117",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 22,
@@ -173,7 +194,8 @@
     "description": "Analytic Geometry and Calculus B",
     "credits": 4,
     "prereq": "MATH232/MATH241",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 23,
@@ -181,7 +203,8 @@
     "description": "Senior Thesis",
     "credits": "2021-02-04T05:00:00.000Z",
     "prereq": null,
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 24,
@@ -189,7 +212,8 @@
     "description": "Fundamentals of Physics I",
     "credits": 4,
     "prereq": null,
-    "coreq": "MATH241"
+    "coreq": "MATH241",
+    "enrolled":false
   },
   {
     "id": 25,
@@ -197,7 +221,8 @@
     "description": "Fundamentals of Physics II",
     "credits": 4,
     "prereq": "PHYS 207, MATH 241",
-    "coreq": "MATH242"
+    "coreq": "MATH242",
+    "enrolled":false
   },
   {
     "id": 26,
@@ -205,7 +230,8 @@
     "description": "Gneral Chemistry",
     "credits": 4,
     "prereq": null,
-    "coreq": "MATH 114, MATH 115, or MATH 117"
+    "coreq": "MATH 114, MATH 115, or MATH 117",
+    "enrolled":false
   },
   {
     "id": 27,
@@ -213,7 +239,8 @@
     "description": "Gneral Chemistry",
     "credits": 4,
     "prereq": "CHEM 101, CHEM 103, CHEM 105, CHEM107, or CHEM 111",
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 28,
@@ -221,7 +248,8 @@
     "description": "General Chemistry For Life Sciences I",
     "credits": 4,
     "prereq": null,
-    "coreq": "MATH 114 or higher"
+    "coreq": "MATH 114 or higher",
+    "enrolled":false
   },
   {
     "id": 29,
@@ -229,7 +257,8 @@
     "description": "General Chemistry for Life Sciences II",
     "credits": 4,
     "prereq": "CHEM 107, BISC 207",
-    "coreq": "BISC 208"
+    "coreq": "BISC 208",
+    "enrolled":false
   },
   {
     "id": 30,
@@ -237,7 +266,8 @@
     "description": "Introductory Biology I",
     "credits": 4,
     "prereq": null,
-    "coreq": "CHEM 103 or CHEM 107 or CHEM 111"
+    "coreq": "CHEM 103 or CHEM 107 or CHEM 111",
+    "enrolled":false
   },
   {
     "id": 31,
@@ -245,7 +275,8 @@
     "description": "Introductory Biology II",
     "credits": 4,
     "prereq": "BISC 207 or BISC 205",
-    "coreq": "CHEM 104 or CHEM 108 or CHEM 112"
+    "coreq": "CHEM 104 or CHEM 108 or CHEM 112",
+    "enrolled":false
   },
   {
     "id": 32,
@@ -253,7 +284,8 @@
     "description": "Geological Hazards and Their Human Impact",
     "credits": 3,
     "prereq": null,
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 33,
@@ -261,7 +293,8 @@
     "description": "Geology of Dynamic Earth",
     "credits": 4,
     "prereq": null,
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 34,
@@ -269,7 +302,8 @@
     "description": "Geological Hazards Laboratory",
     "credits": 1,
     "prereq": null,
-    "coreq": "GEOL 105"
+    "coreq": "GEOL 105",
+    "enrolled":false
   },
   {
     "id": 35,
@@ -277,7 +311,8 @@
     "description": "Geology of Dynamic Earth",
     "credits": 4,
     "prereq": null,
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 36,
@@ -285,7 +320,8 @@
     "description": "Earth’s Evolving Systems",
     "credits": 4,
     "prereq": null,
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 37,
@@ -293,7 +329,8 @@
     "description": "Europe and the World to 1648",
     "credits": 3,
     "prereq": null,
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   },
   {
     "id": 38,
@@ -301,6 +338,7 @@
     "description": "Europe and the World since 1648",
     "credits": 3,
     "prereq": null,
-    "coreq": null
+    "coreq": null,
+    "enrolled":false
   }
 ]
