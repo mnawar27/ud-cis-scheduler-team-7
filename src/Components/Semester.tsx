@@ -17,10 +17,12 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
     }
     function removeCourse(course:Course){
         const copy1:Course[]=[...courses];
+        let n:number;
         for (let i=0;i<courses.length;i++){
             if(course.id==courses[i].id){
                 copy1.splice(i,1);
-
+                n=course.id;
+                COURSES[n-1].enrolled=false;
             }
         }
         setCourses(copy1);
