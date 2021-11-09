@@ -51,14 +51,13 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
     };
  
     return <div className={"semester"}>
-        Year {props.year}   {props.season} Semester
+        <h5>Year {props.year}   {props.season} Semester</h5>
         <table>
             <tr>
                 <td>ID</td>
                 <td>Name</td>
                 <td>Credits</td>
                 <td>Preq for</td>
-                
             </tr>
             {courses.slice().map((Course,i)=> {
                 const prereqs:string[]=[];
@@ -78,9 +77,11 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
                             return i+"\n";
                         }
                         )}</td>
-                        <td scope="col"><button className="btn btn-light btn-sm" onClick={()=>removeCourse(Course)}>Remove course</button></td>
-                        <td scope="col"><button className="btn btn-light btn-sm" onClick={()=>editCourse(Course.id)}>Edit course</button></td>
 
+                        <td scope="col" align="center">
+                            <Button id="special" className="btn btn-sm" onClick={()=>removeCourse(Course)}>Remove course</Button>
+                            <Button id="special2" className="btn btn-sm" onClick={()=>editCourse(Course.id)}>Edit course</Button>
+                        </td>
                     </tr>
                 );
             })}
