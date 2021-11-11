@@ -31,8 +31,13 @@ function App(): JSX.Element {
         setSpringSemesters([...semesters,i+1]);
     }
     function removeFallSemester(semesters: number[]){
+        let n:number;
         const copy: number[] = [...semesters];
         copy.splice(semesters.length-1,1);
+        for(let i=0;i<currentCourses.length;i++){
+            n=currentCourses[i].id;
+            COURSES[n-1].enrolled=false;
+        }
         setFallSemesters(copy);
     }
     function removeSpringSemester(semesters: number[]){
