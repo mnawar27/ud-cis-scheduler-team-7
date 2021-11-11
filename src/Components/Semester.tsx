@@ -5,7 +5,7 @@ import {AddCourseMenu} from "./AddCourseMenu";
 import COURSES from "../Assets/courses.json";
 import EditCourse from "./EditCourse";
 
-export function Semester(props:{courses:Course[];year:number;season:string;setCurrentCourses:(arg0:Course[])=>void}): JSX.Element{
+export function Semester(props:{courses:Course[];year:number;season:string}): JSX.Element{
     const [popup,setPopup]=useState(false);
     const [courses,setCourses]=useState(props.courses);
 
