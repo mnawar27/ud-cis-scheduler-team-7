@@ -14,6 +14,7 @@ import "./App.css";
 import "./Components/Semester.css";
 import "./Components/Menu.css";
 function App(): JSX.Element {
+    const defaultfall:Course[]=[COURSES[0],COURSES[1],COURSES[2],COURSES[3]];
     const [currentCourses, setCurrentCourses] = useState([COURSES[0],COURSES[1],COURSES[2],COURSES[3]]as Course[]);
     const [fallsemesters, setFallSemesters]=useState([currentCourses,currentCourses,currentCourses,currentCourses]);
     const [springsemesters, setSpringSemesters]=useState([1,2,3,4]);
@@ -34,8 +35,8 @@ function App(): JSX.Element {
         const copy: Course[][] = [...semesters];
         copy.splice(semesters.length-1,1);
         if(semesters.length>0){
-            for(let i=0;i<semesters.length;i++){
-                n=semesters[i][semesters.length-1].id;
+            for(let i=0;i<semesters[semesters.length-1].length;i++){
+                n=semesters[semesters.length-1][i].id;
                 COURSES[n-1].enrolled=false;
             }
         }   
@@ -57,8 +58,12 @@ function App(): JSX.Element {
         setFallSemesters(fcopy);
         setSpringSemesters(scopy);
     }
-    function setDefault(){
-        setFallSemesters([currentCourses,currentCourses,currentCourses,currentCourses]);
+    function setDefault(fsemesters:Course[][],ssemesters:number[]){
+        const fcopy: Course[][] = [...fsemesters];
+        const scopy: number[] = [...ssemesters];
+        fcopy.splice(0,fsemesters.length);
+        scopy.splice(0,ssemesters.length);
+        setFallSemesters([defaultfall,defaultfall,defaultfall,defaultfall]);
         setSpringSemesters([1,2,3,4]);
     }
     return (
@@ -78,23 +83,24 @@ function App(): JSX.Element {
                         <div className="row">
                             <div className="col">
                                 <button className="btn btn-light btn-sm" onClick={()=>clearSemester(fallsemesters,springsemesters)}>Clear all semesters</button>
+                                <button className="btn btn-light btn-sm" onClick={()=>setDefault(fallsemesters,springsemesters)}>Set default plan</button>
                             </div>
                         </div>
                         <button className="btn btn-light btn-sm" onClick={()=>addFallSemester(fallsemesters)}>Add fall semester</button>
                         <button className="btn btn-light btn-sm" onClick={()=>removeFallSemester(fallsemesters)}>Remove last fall semester</button>
                         {fallsemesters.map((Courses,i)=>{
                             return(
-                                <Semester key = {null}
+                                <Semester key = {i}
                                     year={i+1}
                                     season = {"Fall"} 
-                                    courses = {currentCourses}
-                                    setCurrentCourses={setCurrentCourses}/>);
+                                    courses = {Courses}
+                                />);
                         })}
                     </div>
                     <div className="col">
                         <div className="row">
-                            <div className="col">
-                                <button className="btn btn-light btn-sm" onClick={()=>setDefault()}>Set default plan</button>
+                            <div>
+                                <button className=" btn btn-ligh btn-sm">default plan</button>
                             </div>
                         </div>
                         <button className="btn btn-light btn-sm" onClick={()=>addSpringSemester(springsemesters)}>Add spring semester</button>
@@ -105,7 +111,7 @@ function App(): JSX.Element {
                                     year = {i}
                                     season = {"Spring"} 
                                     courses = {currentCourses}
-                                    setCurrentCourses = {setCurrentCourses}/>);
+                                />);
                         })}
                     </div>
                 </div>
