@@ -15,20 +15,30 @@ import "./Components/Semester.css";
 import "./Components/Menu.css";
 function App(): JSX.Element {
     const defaultfall:Course[]=[COURSES[0],COURSES[1],COURSES[2],COURSES[3]];
+    const defaultspring:Course[]=[COURSES[0],COURSES[1],COURSES[2],COURSES[3]];
     const [currentCourses, setCurrentCourses] = useState([COURSES[0],COURSES[1],COURSES[2],COURSES[3]]as Course[]);
     const [fallsemesters, setFallSemesters]=useState([currentCourses,currentCourses,currentCourses,currentCourses]);
-    const [springsemesters, setSpringSemesters]=useState([1,2,3,4]);
+    const [springsemesters, setSpringSemesters]=useState([currentCourses,currentCourses,currentCourses,currentCourses]);
+    const [clear,setClear]=useState(true);
     function useForceUpdate(){
         const [value,setValue] = useState(0); // integer state
         value;
         return () => setValue(value => value + 1); // update the state to force render
     }
+    function updateClear(){
+        if (fallsemesters.length==0 && springsemesters.length==0){
+            setClear(false);
+        }else{
+            setClear(true);
+        }
+    }
     function addFallSemester(semesters: Course[][]){
         setFallSemesters([...semesters,currentCourses]);
+        setClear(true);
     }
-    function addSpringSemester(semesters: number[]){
-        const i: number = semesters.length;
-        setSpringSemesters([...semesters,i+1]);
+    function addSpringSemester(semesters: Course[][]){
+        setSpringSemesters([...semesters,currentCourses]);
+        setClear(true);
     }
     function removeFallSemester(semesters: Course[][]){
         let n:number;
@@ -39,32 +49,36 @@ function App(): JSX.Element {
                 n=semesters[semesters.length-1][i].id;
                 COURSES[n-1].enrolled=false;
             }
-        }   
+        }
         setFallSemesters(copy);
+        updateClear();
     }
-    function removeSpringSemester(semesters: number[]){
-        const copy: number[] = [...semesters];
+    function removeSpringSemester(semesters: Course[][]){
+        const copy: Course[][] = [...semesters];
         copy.splice(semesters.length-1,1);
         setSpringSemesters(copy);
+        updateClear();
     }
-    function clearSemester(fsemesters: Course[][], ssemesters: number[]){
+    function clearSemester(fsemesters: Course[][], ssemesters: Course[][]){
         const fcopy: Course[][] = [...fsemesters];
-        const scopy: number[] = [...ssemesters];
+        const scopy: Course[][] = [...ssemesters];
         fcopy.splice(0,fsemesters.length);
         scopy.splice(0,ssemesters.length);
         for(let i=0;i<COURSES.length;i++){
             COURSES[i].enrolled=false;
         }
+        setClear(false);
         setFallSemesters(fcopy);
         setSpringSemesters(scopy);
     }
-    function setDefault(fsemesters:Course[][],ssemesters:number[]){
+    function setDefault(fsemesters:Course[][],ssemesters:Course[][]){
         const fcopy: Course[][] = [...fsemesters];
-        const scopy: number[] = [...ssemesters];
+        const scopy: Course[][] = [...ssemesters];
         fcopy.splice(0,fsemesters.length);
         scopy.splice(0,ssemesters.length);
         setFallSemesters([defaultfall,defaultfall,defaultfall,defaultfall]);
-        setSpringSemesters([1,2,3,4]);
+        setSpringSemesters([defaultspring,defaultspring,defaultspring,defaultspring]);
+        setClear(true);
     }
     return (
         <div className="App">
@@ -82,8 +96,9 @@ function App(): JSX.Element {
                     <div className="col">
                         <div className="row">
                             <div className="col">
-                                <button className="btn btn-light btn-sm" onClick={()=>clearSemester(fallsemesters,springsemesters)}>Clear all semesters</button>
-                                <button className="btn btn-light btn-sm" onClick={()=>setDefault(fallsemesters,springsemesters)}>Set default plan</button>
+                                {clear?
+                                    <button className="btn btn-light btn-sm" onClick={()=>clearSemester(fallsemesters,springsemesters)}>Clear all semesters</button>:
+                                    <button className="btn btn-light btn-sm" onClick={()=>setDefault(fallsemesters,springsemesters)}>Set default plan</button>}
                             </div>
                         </div>
                         <button className="btn btn-light btn-sm" onClick={()=>addFallSemester(fallsemesters)}>Add fall semester</button>
@@ -99,18 +114,18 @@ function App(): JSX.Element {
                     </div>
                     <div className="col">
                         <div className="row">
-                            <div>
-                                <button className=" btn btn-ligh btn-sm">default plan</button>
+                            <div className="col">
+                                <p className=" fake">Secret </p>
                             </div>
                         </div>
                         <button className="btn btn-light btn-sm" onClick={()=>addSpringSemester(springsemesters)}>Add spring semester</button>
                         <button className="btn btn-light btn-sm" onClick={()=>removeSpringSemester(springsemesters)}>Remove last spring semester</button>
-                        {springsemesters.map((i)=>{
+                        {springsemesters.map((Courses,i)=>{
                             return(
                                 <Semester key = {i}
-                                    year = {i}
+                                    year = {i+1}
                                     season = {"Spring"} 
-                                    courses = {currentCourses}
+                                    courses = {Courses}
                                 />);
                         })}
                     </div>
