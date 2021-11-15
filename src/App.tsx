@@ -14,43 +14,76 @@ import "./App.css";
 import "./Components/Semester.css";
 import "./Components/Menu.css";
 function App(): JSX.Element {
-    const [currentCourses, setCurrentCourses] = useState([COURSES[0],COURSES[1],COURSES[2],COURSES[3]]as Course[]);
-    const [fallsemesters, setFallSemesters]=useState([1,2,3,4]);
-    const [springsemesters, setSpringSemesters]=useState([1,2,3,4]);
+    const defaultfall:Course[]=[COURSES[0],COURSES[1],COURSES[2],COURSES[3]];
+    const defaultspring:Course[]=[COURSES[0],COURSES[1],COURSES[2],COURSES[3]];
+    const currentCourses = [COURSES[0],COURSES[1],COURSES[2],COURSES[3]]as Course[];
+    const [fallsemesters, setFallSemesters]=useState([currentCourses,currentCourses,currentCourses,currentCourses]);
+    const [springsemesters, setSpringSemesters]=useState([currentCourses,currentCourses,currentCourses,currentCourses]);
+    const [clear,setClear]=useState(true);
     function useForceUpdate(){
         const [value,setValue] = useState(0); // integer state
         value;
         return () => setValue(value => value + 1); // update the state to force render
     }
-    function addFallSemester(semesters: number[]){
-        const i: number = semesters.length;
-        setFallSemesters([...semesters,i+1]);
+    function addSemester(fsemesters:Course[][],ssemesters:Course[][],season:boolean){
+        if(season==true){
+            setFallSemesters([...fsemesters,[]]);
+        }else{
+            setSpringSemesters([...ssemesters,[]]);
+        }
+        setClear(true);
     }
-    function addSpringSemester(semesters: number[]){
-        const i: number = semesters.length;
-        setSpringSemesters([...semesters,i+1]);
+    function removeSemester(fsemesters:Course[][],ssemesters:Course[][],season:boolean){
+        let n:number;
+        let copy:Course[][];
+        if (season==true){
+            copy=[...fsemesters];
+            copy.splice(fsemesters.length-1,1);
+            if(fsemesters.length>0){
+                for(let i=0;i<fsemesters[fsemesters.length-1].length;i++){
+                    n=fsemesters[fsemesters.length-1][i].id;
+                    COURSES[n-1].enrolled=false;
+                }
+            }
+            if(copy.length==0 && ssemesters.length==0){
+                setClear(false);
+            }
+            setFallSemesters(copy);
+        }else{
+            copy=[...ssemesters];
+            copy.splice(ssemesters.length-1,1);
+            if(ssemesters.length>0){
+                for(let i=0;i<ssemesters[ssemesters.length-1].length;i++){
+                    n=ssemesters[ssemesters.length-1][i].id;
+                    COURSES[n-1].enrolled=false;
+                }
+            }
+            if(fsemesters.length==0 && copy.length==0){
+                setClear(false);
+            }
+            setSpringSemesters(copy);
+        }
     }
-    function removeFallSemester(semesters: number[]){
-        const copy: number[] = [...semesters];
-        copy.splice(semesters.length-1,1);
-        setFallSemesters(copy);
-    }
-    function removeSpringSemester(semesters: number[]){
-        const copy: number[] = [...semesters];
-        copy.splice(semesters.length-1,1);
-        setSpringSemesters(copy);
-    }
-    function clearSemester(fsemesters: number[], ssemesters: number[]){
-        const fcopy: number[] = [...fsemesters];
-        const scopy: number[] = [...ssemesters];
+    function clearSemester(fsemesters: Course[][], ssemesters: Course[][]){
+        const fcopy: Course[][] = [...fsemesters];
+        const scopy: Course[][] = [...ssemesters];
         fcopy.splice(0,fsemesters.length);
         scopy.splice(0,ssemesters.length);
+        for(let i=0;i<COURSES.length;i++){
+            COURSES[i].enrolled=false;
+        }
+        setClear(false);
         setFallSemesters(fcopy);
         setSpringSemesters(scopy);
     }
-    function setDefault(){
-        setFallSemesters([1,2,3,4]);
-        setSpringSemesters([1,2,3,4]);
+    function setDefault(fsemesters:Course[][],ssemesters:Course[][]){
+        const fcopy: Course[][] = [...fsemesters];
+        const scopy: Course[][] = [...ssemesters];
+        fcopy.splice(0,fsemesters.length);
+        scopy.splice(0,ssemesters.length);
+        setFallSemesters([defaultfall,defaultfall,defaultfall,defaultfall]);
+        setSpringSemesters([defaultspring,defaultspring,defaultspring,defaultspring]);
+        setClear(true);
     }
     return (
         <div className="App">
@@ -68,35 +101,38 @@ function App(): JSX.Element {
                     <div className="col">
                         <div className="row">
                             <div className="col">
-                                <button className="btn btn-light btn-sm" onClick={()=>clearSemester(fallsemesters,springsemesters)}>Clear all semesters</button>
+                                {clear?
+                                    <button className="btn btn-light btn-sm" onClick={()=>clearSemester(fallsemesters,springsemesters)}>Clear all semesters</button>:
+                                    <button className="btn btn-light btn-sm" onClick={()=>setDefault(fallsemesters,springsemesters)}>Set default plan</button>}
                             </div>
                         </div>
-                        <button className="btn btn-light btn-sm" onClick={()=>addFallSemester(fallsemesters)}>Add fall semester</button>
-                        <button className="btn btn-light btn-sm" onClick={()=>removeFallSemester(fallsemesters)}>Remove last fall semester</button>
-                        {fallsemesters.map((i)=>{
+                        <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,true)}>Add fall semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,true)}>Remove last fall semester</button>
+                        {fallsemesters.map((Courses,i)=>{
                             return(
                                 <Semester key = {i}
-                                    year = {i}
+                                    year={i+1}
                                     season = {"Fall"} 
-                                    courses = {currentCourses}
-                                    setCurrentCourses={setCurrentCourses}/>);
+                                    courses = {Courses}
+                                />);
                         })}
                     </div>
                     <div className="col">
                         <div className="row">
                             <div className="col">
-                                <button className="btn btn-light btn-sm" onClick={()=>setDefault()}>Set default plan</button>
+                                <button className="btn btn-light btn-sm">Save plan</button>
+                                <button className="btn btn-light btn-sm">Load plan</button>
                             </div>
                         </div>
-                        <button className="btn btn-light btn-sm" onClick={()=>addSpringSemester(springsemesters)}>Add spring semester</button>
-                        <button className="btn btn-light btn-sm" onClick={()=>removeSpringSemester(springsemesters)}>Remove last spring semester</button>
-                        {springsemesters.map((i)=>{
+                        <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,false)}>Add spring semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,false)}>Remove last spring semester</button>
+                        {springsemesters.map((Courses,i)=>{
                             return(
                                 <Semester key = {i}
-                                    year = {i}
+                                    year = {i+1}
                                     season = {"Spring"} 
-                                    courses = {currentCourses}
-                                    setCurrentCourses = {setCurrentCourses}/>);
+                                    courses = {Courses}
+                                />);
                         })}
                     </div>
                 </div>

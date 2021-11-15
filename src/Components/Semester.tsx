@@ -5,7 +5,7 @@ import {AddCourseMenu} from "./AddCourseMenu";
 import COURSES from "../Assets/courses.json";
 import EditCourse from "./EditCourse";
 
-export function Semester(props:{courses:Course[];year:number;season:string;setCurrentCourses:(arg0:Course[])=>void}): JSX.Element{
+export function Semester(props:{courses:Course[];year:number;season:string}): JSX.Element{
     const [popup,setPopup]=useState(false);
     const [courses,setCourses]=useState(props.courses);
 
@@ -13,14 +13,21 @@ export function Semester(props:{courses:Course[];year:number;season:string;setCu
     const [editTmpId,setEditTmpId] = useState<number>(0);
 
     function clearSemester(){
+        let n:number;
+        for (let i=0;i<courses.length;i++){
+            n=courses[i].id;
+            COURSES[n-1].enrolled=false;
+        }
         setCourses([]);
     }
     function removeCourse(course:Course){
         const copy1:Course[]=[...courses];
+        let n:number;
         for (let i=0;i<courses.length;i++){
             if(course.id==courses[i].id){
                 copy1.splice(i,1);
-
+                n=course.id;
+                COURSES[n-1].enrolled=false;
             }
         }
         setCourses(copy1);
