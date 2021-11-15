@@ -25,39 +25,44 @@ function App(): JSX.Element {
         value;
         return () => setValue(value => value + 1); // update the state to force render
     }
-    function updateClear(){
-        if (fallsemesters.length==0 && springsemesters.length==0){
-            setClear(false);
+    function addSemester(fsemesters:Course[][],ssemesters:Course[][],season:boolean){
+        if(season==true){
+            setFallSemesters([...fsemesters,[]]);
         }else{
-            setClear(true);
+            setSpringSemesters([...ssemesters,[]]);
         }
-    }
-    function addFallSemester(semesters: Course[][]){
-        setFallSemesters([...semesters,currentCourses]);
         setClear(true);
     }
-    function addSpringSemester(semesters: Course[][]){
-        setSpringSemesters([...semesters,currentCourses]);
-        setClear(true);
-    }
-    function removeFallSemester(semesters: Course[][]){
+    function removeSemester(fsemesters:Course[][],ssemesters:Course[][],season:boolean){
         let n:number;
-        const copy: Course[][] = [...semesters];
-        copy.splice(semesters.length-1,1);
-        if(semesters.length>0){
-            for(let i=0;i<semesters[semesters.length-1].length;i++){
-                n=semesters[semesters.length-1][i].id;
-                COURSES[n-1].enrolled=false;
+        let copy:Course[][];
+        if (season==true){
+            copy=[...fsemesters];
+            copy.splice(fsemesters.length-1,1);
+            if(fsemesters.length>0){
+                for(let i=0;i<fsemesters[fsemesters.length-1].length;i++){
+                    n=fsemesters[fsemesters.length-1][i].id;
+                    COURSES[n-1].enrolled=false;
+                }
             }
+            if(copy.length==0 && ssemesters.length==0){
+                setClear(false);
+            }
+            setFallSemesters(copy);
+        }else{
+            copy=[...ssemesters];
+            copy.splice(ssemesters.length-1,1);
+            if(ssemesters.length>0){
+                for(let i=0;i<ssemesters[ssemesters.length-1].length;i++){
+                    n=ssemesters[ssemesters.length-1][i].id;
+                    COURSES[n-1].enrolled=false;
+                }
+            }
+            if(fsemesters.length==0 && copy.length==0){
+                setClear(false);
+            }
+            setSpringSemesters(copy);
         }
-        setFallSemesters(copy);
-        updateClear();
-    }
-    function removeSpringSemester(semesters: Course[][]){
-        const copy: Course[][] = [...semesters];
-        copy.splice(semesters.length-1,1);
-        setSpringSemesters(copy);
-        updateClear();
     }
     function clearSemester(fsemesters: Course[][], ssemesters: Course[][]){
         const fcopy: Course[][] = [...fsemesters];
@@ -101,8 +106,8 @@ function App(): JSX.Element {
                                     <button className="btn btn-light btn-sm" onClick={()=>setDefault(fallsemesters,springsemesters)}>Set default plan</button>}
                             </div>
                         </div>
-                        <button className="btn btn-light btn-sm" onClick={()=>addFallSemester(fallsemesters)}>Add fall semester</button>
-                        <button className="btn btn-light btn-sm" onClick={()=>removeFallSemester(fallsemesters)}>Remove last fall semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,true)}>Add fall semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,true)}>Remove last fall semester</button>
                         {fallsemesters.map((Courses,i)=>{
                             return(
                                 <Semester key = {i}
@@ -118,8 +123,8 @@ function App(): JSX.Element {
                                 <p className=" fake">Secret </p>
                             </div>
                         </div>
-                        <button className="btn btn-light btn-sm" onClick={()=>addSpringSemester(springsemesters)}>Add spring semester</button>
-                        <button className="btn btn-light btn-sm" onClick={()=>removeSpringSemester(springsemesters)}>Remove last spring semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,false)}>Add spring semester</button>
+                        <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,false)}>Remove last spring semester</button>
                         {springsemesters.map((Courses,i)=>{
                             return(
                                 <Semester key = {i}
