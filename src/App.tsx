@@ -16,7 +16,7 @@ import "./Components/Menu.css";
 function App(): JSX.Element {
     const defaultfall:Course[]=[COURSES[0],COURSES[1],COURSES[2],COURSES[3]];
     const defaultspring:Course[]=[COURSES[0],COURSES[1],COURSES[2],COURSES[3]];
-    const [currentCourses, setCurrentCourses] = useState([COURSES[0],COURSES[1],COURSES[2],COURSES[3]]as Course[]);
+    const currentCourses = [COURSES[0],COURSES[1],COURSES[2],COURSES[3]]as Course[];
     const [fallsemesters, setFallSemesters]=useState([currentCourses,currentCourses,currentCourses,currentCourses]);
     const [springsemesters, setSpringSemesters]=useState([currentCourses,currentCourses,currentCourses,currentCourses]);
     const [clear,setClear]=useState(true);
