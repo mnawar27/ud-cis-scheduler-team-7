@@ -120,7 +120,8 @@ function App(): JSX.Element {
                     <div className="col">
                         <div className="row">
                             <div className="col">
-                                <p className=" fake">Secret </p>
+                                <button className="btn btn-light btn-sm">Save plan</button>
+                                <button className="btn btn-light btn-sm">Load plan</button>
                             </div>
                         </div>
                         <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,false)}>Add spring semester</button>
