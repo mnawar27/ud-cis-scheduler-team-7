@@ -14,8 +14,8 @@ import "./App.css";
 import "./Components/Semester.css";
 import "./Components/Menu.css";
 function App(): JSX.Element {
-    const defaultfall:Course[][]=[[COURSES[0],COURSES[1],COURSES[2],COURSES[3]],[COURSES[0],COURSES[1],COURSES[2],COURSES[3]],[COURSES[0],COURSES[1],COURSES[2],COURSES[3]],[COURSES[0],COURSES[1],COURSES[2],COURSES[3]]];
-    const defaultspring:Course[][]=[[COURSES[0],COURSES[1],COURSES[2],COURSES[3]],[COURSES[0],COURSES[1],COURSES[2],COURSES[3]],[COURSES[0],COURSES[1],COURSES[2],COURSES[3]],[COURSES[0],COURSES[1],COURSES[2],COURSES[3]]];
+    const defaultfall:Course[][]=[[COURSES[0],COURSES[14],COURSES[15],COURSES[20]],[COURSES[3],COURSES[4],COURSES[19],COURSES[34]],[COURSES[7],COURSES[8],COURSES[10],COURSES[33]],[COURSES[12],COURSES[11],COURSES[36],COURSES[38]]];
+    const defaultspring:Course[][]=[[COURSES[1],COURSES[2],COURSES[21],COURSES[40]],[COURSES[5],COURSES[9],COURSES[18],COURSES[35]],[COURSES[6],COURSES[11],COURSES[16],COURSES[41]],[COURSES[13],COURSES[43],COURSES[42],COURSES[45]]];
     const [fallsemesters, setFallSemesters]=useState(defaultfall);
     const [springsemesters, setSpringSemesters]=useState(defaultspring);
     const [clear,setClear]=useState(true);
