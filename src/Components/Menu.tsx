@@ -44,7 +44,7 @@ export function Menu(): JSX.Element{
             <h6>Incomplete Requirements</h6>
             <ul className="nav navbar-nav">
                 {COURSES.map((Course, i) => {
-                    if(Course.enrolled==false){
+                    if(Course.enrolled==0){
                         return <li key={i}><strong>{Course.name}</strong> {Course.description} <button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}>Override</button></li>;
                     }
                 })}
@@ -53,7 +53,7 @@ export function Menu(): JSX.Element{
             <h6>Complete Requirements</h6>
             <ul className="nav navbar-nav">
                 {COURSES.map((Course, i) => {
-                    if(Course.enrolled==true){
+                    if(Course.enrolled>0){
                         return <li key={i}><strong>{Course.name}</strong> {Course.description} <button onClick={()=>overrideCourse(i)}> Override This Course</button></li>;
                     }
                 })}
