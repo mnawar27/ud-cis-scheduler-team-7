@@ -41,7 +41,7 @@ function App(): JSX.Element {
             if(fsemesters.length>0){
                 for(let i=0;i<fsemesters[fsemesters.length-1].length;i++){
                     n=fsemesters[fsemesters.length-1][i].id;
-                    COURSES[n-1].enrolled=false;
+                    COURSES[n-1].enrolled=0;
                 }
             }
             if(copy.length==0 && ssemesters.length==0){
@@ -54,7 +54,7 @@ function App(): JSX.Element {
             if(ssemesters.length>0){
                 for(let i=0;i<ssemesters[ssemesters.length-1].length;i++){
                     n=ssemesters[ssemesters.length-1][i].id;
-                    COURSES[n-1].enrolled=false;
+                    COURSES[n-1].enrolled=0;
                 }
             }
             if(fsemesters.length==0 && copy.length==0){
@@ -65,21 +65,21 @@ function App(): JSX.Element {
     }
     function clearSemester(){
         for(let i=0;i<COURSES.length;i++){
-            COURSES[i].enrolled=false;
+            COURSES[i].enrolled=0;
         }
         setClear(false);
         setFallSemesters([]);
         setSpringSemesters([]);
     }
     function setDefault(){
-        defaultfall.map((semester)=>{
+        defaultfall.map((semester,i)=>{
             semester.map((course)=>{
-                course.enrolled=true;
+                course.enrolled=i+1;
             });
         });
-        defaultspring.map((semester)=>{
+        defaultspring.map((semester,i)=>{
             semester.map((course)=>{
-                course.enrolled=true;
+                course.enrolled=2*(i+1);
             });
         });
         setFallSemesters(defaultfall);
