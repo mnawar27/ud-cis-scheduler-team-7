@@ -1,8 +1,6 @@
 .menu {
     scroll-behavior: smooth;
-    padding: 15px;
     overflow-x: scroll;
-    overflow-y: scroll;
     white-space: nowrap;
     height: auto;
 }

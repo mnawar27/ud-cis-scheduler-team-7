@@ -16,26 +16,36 @@ export function Menu(): JSX.Element{
     }
     return(
         <div className="menu">
-            <h3>Course list</h3>
-            <div > Override Course info
-                <br/>
+            <div> 
+                <h6>Override course info</h6>
                 <form>
-                    <p><label><li>Course Name</li></label></p>
-                    <input type='text' placeholder='edit course name' value={name} onChange={(e)=>setName(e.target.value)}/>
-                    <p></p>
-                    <p><label><li>Description</li></label></p>
-                    <input type='text' placeholder='edit description' value={description} onChange={(e)=>setDescription(e.target.value)}/>
-                    <p></p>
-                    <p><label><li>Credit</li></label></p>
-                    <input type='number' placeholder='edit credit'value={credits}  onChange={(e)=>setCredits(parseInt(e.target.value))}/>
-    
+                    <div className="form-group">
+                        <input type='text' placeholder='ID' value={name} onChange={(e)=>setName(e.target.value)}/>
+                    </div>
+                    <div className="form-group">
+                        <input type='text' placeholder='Name' value={description} onChange={(e)=>setDescription(e.target.value)}/>
+                    </div>
+                    <div className="form-group">
+                        <select className="form-control form-control-sm" value={credits} onChange={(e)=>setCredits(parseInt(e.target.value))}>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                    </div>
                 </form>
             </div>
             <h6>Incomplete Requirements</h6>
             <ul className="nav navbar-nav">
                 {COURSES.map((Course, i) => {
                     if(Course.enrolled==false){
-                        return <li key={i}><strong>{Course.name}</strong> {Course.description} <button onClick={()=>overrideCourse(i)}> Override This Course</button></li>;
+                        return <li key={i}><strong>{Course.name}</strong> {Course.description} <button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}>Override</button></li>;
                     }
                 })}
             </ul>
