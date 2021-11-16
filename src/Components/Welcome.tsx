@@ -14,7 +14,12 @@ export function Welcome(): JSX.Element{
                     </ToastHeader>
                     <Toast.Body> 
                         <p>This handy dandy website can help you plan out your computer science degree at UD.</p>
-                        <button type="button" className="btn btn-dark btn-sm">Tutorial</button>
+                        <ul>
+                            <li>Add and/or remove semesters using the add and remove fall and spring semester.</li>
+                            <li>Clear all semesters will clear out the entire schedule.</li>
+                            <li>Click Edit to edit course names in the semesters.</li>
+                            <li>Click Remove to remove a course from a semester.</li>
+                        </ul>
                     </Toast.Body>
                 </Toast>
             </ToastContainer>
