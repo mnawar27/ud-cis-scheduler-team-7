@@ -1,5 +1,7 @@
+import { Button } from "react-bootstrap";
 import React, { useState } from "react";
 import Course from "../Interfaces/Course";
+
 interface IProps{
    editTmpId:number;
    editAddCourse: (tmpCourse: Course) => void
@@ -17,19 +19,32 @@ const EditCourse:React.FC<IProps> = ({editTmpId,editAddCourse}) => {
         editAddCourse({id,name,description,credits}) ;
     };
     return (
-        <div >
-            <br/>
-            <form onSubmit={onSubmit} >
-                <p><label><li>Course Name</li></label></p>
-                <input type='text' placeholder='edit course name' value={name} onChange={(e)=>setName(e.target.value)}/>
-                <p></p>
-                <p><label><li>Description</li></label></p>
-                <input type='text' placeholder='edit description' value={description} onChange={(e)=>setDescription(e.target.value)}/>
-                <p></p>
-                <p><label><li>Credit</li></label></p>
-                <input type='number' placeholder='edit credit'value={credits}  onChange={(e)=>setCredits(parseInt(e.target.value))}/>
-    
-                <p><input type="submit" className="btn btn-primary m-2" value="Save course"/></p>
+        <div>
+            <form onSubmit={onSubmit}>
+                <div className="form-group">
+                    <label>Course ID</label>
+                    <input type='text' className="form-control" placeholder='e.g. CISC108' value={name} onChange={(e)=>setName(e.target.value)}/>
+                </div>
+                <div className="form-group">
+                    <label>Name</label>
+                    <input type='text' className="form-control" placeholder='e.g. Intro to Computer Science I' value={description} onChange={(e)=>setDescription(e.target.value)}/>
+                </div>
+                <div className="form-group">
+                    <label>Credits</label>
+                    <select className="form-control" value={credits} onChange={(e)=>setCredits(parseInt(e.target.value))}>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                </div>
+                <Button type="submit" id="save-button" className="btn btn-sm">Save</Button>
             </form>
         </div>
     );

@@ -14,11 +14,17 @@ import "./App.css";
 import "./Components/Semester.css";
 import "./Components/Menu.css";
 function App(): JSX.Element {
-    const defaultfall:Course[]=[COURSES[0],COURSES[1],COURSES[2],COURSES[3]];
-    const defaultspring:Course[]=[COURSES[0],COURSES[1],COURSES[2],COURSES[3]];
-    const currentCourses = [COURSES[0],COURSES[1],COURSES[2],COURSES[3]]as Course[];
-    const [fallsemesters, setFallSemesters]=useState([currentCourses,currentCourses,currentCourses,currentCourses]);
-    const [springsemesters, setSpringSemesters]=useState([currentCourses,currentCourses,currentCourses,currentCourses]);
+    const defaultfall1:Course[]=[COURSES[0],COURSES[14],COURSES[15],COURSES[20]];
+    const defaultfall2:Course[]=[COURSES[3],COURSES[4],COURSES[19],COURSES[34]];
+    const defaultfall3:Course[]=[COURSES[7],COURSES[8],COURSES[10],COURSES[33]];
+    const defaultfall4:Course[]=[COURSES[12],COURSES[11],COURSES[36],COURSES[38]];
+    const defaultspring1:Course[]=[COURSES[1],COURSES[2],COURSES[21],COURSES[40]];
+    const defaultspring2:Course[]=[COURSES[5],COURSES[9],COURSES[18],COURSES[35]];
+    const defaultspring3:Course[]=[COURSES[6],COURSES[11],COURSES[16],COURSES[41]];
+    const defaultspring4:Course[]=[COURSES[13],COURSES[43],COURSES[42],COURSES[45]];
+    //const currentCourses = [COURSES[0],COURSES[1],COURSES[2],COURSES[3]] as Course[];
+    const [fallsemesters, setFallSemesters]=useState([defaultfall1,defaultfall2,defaultfall3,defaultfall4]);
+    const [springsemesters, setSpringSemesters]=useState([defaultspring1,defaultspring2,defaultspring3,defaultspring4]);
     const [clear,setClear]=useState(true);
     function useForceUpdate(){
         const [value,setValue] = useState(0); // integer state
@@ -81,59 +87,73 @@ function App(): JSX.Element {
         const scopy: Course[][] = [...ssemesters];
         fcopy.splice(0,fsemesters.length);
         scopy.splice(0,ssemesters.length);
-        setFallSemesters([defaultfall,defaultfall,defaultfall,defaultfall]);
-        setSpringSemesters([defaultspring,defaultspring,defaultspring,defaultspring]);
+        setFallSemesters([defaultfall1,defaultfall2,defaultfall3,defaultfall4]);
+        setSpringSemesters([defaultspring1,defaultspring2,defaultspring3,defaultspring4]);
         setClear(true);
     }
     return (
         <div className="App">
             <Welcome />
             <div className="container-fluid">
+                {/* header row */}
                 <div className="row">
                     <header className="App-header">
-                        <h1>UD CIS Scheduler <button onClick={useForceUpdate()}>Update courses</button></h1>
+                        <h1>UD CIS Scheduler</h1>
                     </header>
                 </div>
+                {/* rest of page row */}
                 <div className="row">
-                    <div className="col-3">
+                    {/* menu column */}
+                    <div className="col-2">
+                        <h3>Course list</h3>
+                        <button className="btn btn-light btn-sm" onClick={useForceUpdate()}>Update course</button>
                         <Menu />
                     </div>
+                    {/* rightside of page column */}
                     <div className="col">
-                        <div className="row">
+                        {/* rightside of page row */}
+                        <div className="row no-gutters" id="schedule-title">
+                            <h3>Schedule</h3>
+                            {/* fall sem column */}
                             <div className="col">
-                                {clear?
-                                    <button className="btn btn-light btn-sm" onClick={()=>clearSemester(fallsemesters,springsemesters)}>Clear all semesters</button>:
-                                    <button className="btn btn-light btn-sm" onClick={()=>setDefault(fallsemesters,springsemesters)}>Set default plan</button>}
+                                <div className="row">
+                                    <div className="col">
+                                        {clear?
+                                            <button className="btn btn-light btn-sm" onClick={()=>clearSemester(fallsemesters,springsemesters)}>Clear all semesters</button>:
+                                            <button className="btn btn-light btn-sm" onClick={()=>setDefault(fallsemesters,springsemesters)}>Set default plan</button>}
+                                    </div>
+                                </div>
+                                <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,true)}>Add fall semester</button>
+                                <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,true)}>Remove last fall semester</button>
+                                {fallsemesters.map((Courses,i)=>{
+                                    return(
+                                        <Semester key = {i}
+                                            year={i+1}
+                                            season = {"Fall"} 
+                                            courses = {Courses}
+                                        />);
+                                })}
+                            </div>
+                            {/* spring sem column */}
+                            <div className="col">
+                                <div className="row">
+                                    <div className="col">
+                                        <button className="btn btn-light btn-sm">Save plan</button>
+                                        <button className="btn btn-light btn-sm">Load plan</button>
+                                    </div>
+                                </div>
+                                <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,false)}>Add spring semester</button>
+                                <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,false)}>Remove last spring semester</button>
+                                {springsemesters.map((Courses,i)=>{
+                                    return(
+                                        <Semester key = {i}
+                                            year = {i+1}
+                                            season = {"Spring"} 
+                                            courses = {Courses}
+                                        />);
+                                })}
                             </div>
                         </div>
-                        <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,true)}>Add fall semester</button>
-                        <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,true)}>Remove last fall semester</button>
-                        {fallsemesters.map((Courses,i)=>{
-                            return(
-                                <Semester key = {i}
-                                    year={i+1}
-                                    season = {"Fall"} 
-                                    courses = {Courses}
-                                />);
-                        })}
-                    </div>
-                    <div className="col">
-                        <div className="row">
-                            <div className="col">
-                                <button className="btn btn-light btn-sm">Save plan</button>
-                                <button className="btn btn-light btn-sm">Load plan</button>
-                            </div>
-                        </div>
-                        <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,false)}>Add spring semester</button>
-                        <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,false)}>Remove last spring semester</button>
-                        {springsemesters.map((Courses,i)=>{
-                            return(
-                                <Semester key = {i}
-                                    year = {i+1}
-                                    season = {"Spring"} 
-                                    courses = {Courses}
-                                />);
-                        })}
                     </div>
                 </div>
             </div>
