@@ -90,51 +90,65 @@ function App(): JSX.Element {
         <div className="App">
             <Welcome />
             <div className="container-fluid">
+                {/* header row */}
                 <div className="row">
                     <header className="App-header">
-                        <h1>UD CIS Scheduler <button onClick={useForceUpdate()}>Update courses</button></h1>
+                        <h1>UD CIS Scheduler</h1>
                     </header>
                 </div>
+                {/* rest of page row */}
                 <div className="row">
-                    <div className="col-3">
+                    {/* menu column */}
+                    <div className="col-2">
+                        <h3>Course list</h3>
+                        <button className="btn btn-light btn-sm" onClick={useForceUpdate()}>Update course</button>
                         <Menu />
                     </div>
+                    {/* rightside of page column */}
                     <div className="col">
-                        <div className="row">
+                        {/* rightside of page row */}
+                        <div className="row no-gutters" id="schedule-title">
+                            <h3>Schedule</h3>
+                            {/* fall sem column */}
                             <div className="col">
-                                {clear?
-                                    <button className="btn btn-light btn-sm" onClick={()=>clearSemester()}>Clear all semesters</button>:
-                                    <button className="btn btn-light btn-sm" onClick={()=>setDefault()}>Set default plan</button>}
+                                <div className="row">
+                                    <div className="col">
+                                        {clear?
+                                            <button className="btn btn-light btn-sm" onClick={()=>clearSemester()}>Clear all semesters</button>:
+                                            <button className="btn btn-light btn-sm" onClick={()=>setDefault()}>Set default plan</button>}
+                                    </div>
+                                </div>
+                                <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,true)}>Add fall semester</button>
+                                <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,true)}>Remove last fall semester</button>
+                                {fallsemesters.map((Courses,i)=>{
+                                    return(
+                                        <Semester key = {i}
+                                            year={i+1}
+                                            season = {"Fall"} 
+                                            courses = {Courses}
+                                        />);
+                                })}
+                            </div>
+                            {/* spring sem column */}
+                            <div className="col">
+                                <div className="row">
+                                    <div className="col">
+                                        <button className="btn btn-light btn-sm">Save plan</button>
+                                        <button className="btn btn-light btn-sm">Load plan</button>
+                                    </div>
+                                </div>
+                                <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,false)}>Add spring semester</button>
+                                <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,false)}>Remove last spring semester</button>
+                                {springsemesters.map((Courses,i)=>{
+                                    return(
+                                        <Semester key = {i}
+                                            year = {i+1}
+                                            season = {"Spring"} 
+                                            courses = {Courses}
+                                        />);
+                                })}
                             </div>
                         </div>
-                        <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,true)}>Add fall semester</button>
-                        <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,true)}>Remove last fall semester</button>
-                        {fallsemesters.map((Courses,i)=>{
-                            return(
-                                <Semester key = {i}
-                                    year={i+1}
-                                    season = {"Fall"} 
-                                    courses = {Courses}
-                                />);
-                        })}
-                    </div>
-                    <div className="col">
-                        <div className="row">
-                            <div className="col">
-                                <button className="btn btn-light btn-sm">Save plan</button>
-                                <button className="btn btn-light btn-sm">Load plan</button>
-                            </div>
-                        </div>
-                        <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,false)}>Add spring semester</button>
-                        <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,false)}>Remove last spring semester</button>
-                        {springsemesters.map((Courses,i)=>{
-                            return(
-                                <Semester key = {i}
-                                    year = {i+1}
-                                    season = {"Spring"} 
-                                    courses = {Courses}
-                                />);
-                        })}
                     </div>
                 </div>
             </div>

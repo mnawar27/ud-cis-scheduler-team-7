@@ -266,7 +266,7 @@
     "description": "Introductory Biology I",
     "credits": 4,
     "prereq": null,
-    "coreq": "CHEM 103 or CHEM 107 or CHEM 111",
+    "coreq": "CHEM 103/CHEM 107/CHEM 111",
     "enrolled":false
   },
   {
@@ -274,8 +274,8 @@
     "name": "BISC208",
     "description": "Introductory Biology II",
     "credits": 4,
-    "prereq": "BISC 207 or BISC 205",
-    "coreq": "CHEM 104 or CHEM 108 or CHEM 112",
+    "prereq": "BISC 207/BISC 205",
+    "coreq": "CHEM 104/CHEM 108/CHEM 112",
     "enrolled":false
   },
   {
@@ -336,6 +336,78 @@
     "id": 38,
     "name": "HIST102",
     "description": "Europe and the World since 1648",
+    "credits": 3,
+    "prereq": null,
+    "coreq": null,
+    "enrolled":false
+  },
+  {
+    "id": 39,
+    "name": "AFRA206",
+    "description": "Survey of African American Culture",
+    "credits": 3,
+    "prereq": null,
+    "coreq": null,
+    "enrolled":false
+  },
+  {
+    "id": 40,
+    "name": "AFRA250",
+    "description": "Afro Future Females",
+    "credits": 3,
+    "prereq": null,
+    "coreq": null,
+    "enrolled":false
+  },
+  {
+    "id": 41,
+    "name": "ANTH103",
+    "description": "Introduction to Prehistoric Archaeology",
+    "credits": 3,
+    "prereq": null,
+    "coreq": null,
+    "enrolled":false
+  },
+  {
+    "id": 42,
+    "name": "ANTH218",
+    "description": "Solving Archaeological Mysteries",
+    "credits": 3,
+    "prereq": null,
+    "coreq": null,
+    "enrolled":false
+  },
+  {
+    "id": 43,
+    "name": "CISC356",
+    "description": "Intellectual Property in the Digital Age",
+    "credits": 3,
+    "prereq": null,
+    "coreq": null,
+    "enrolled":false
+  },
+  {
+    "id": 44,
+    "name": "CISC357",
+    "description": "Engaging Youth in Computing",
+    "credits": 3,
+    "prereq": "CISC101 or CISC103 or CISC106 or CISC108",
+    "coreq": null,
+    "enrolled":false
+  },
+  {
+    "id": 45,
+    "name": "CISC465",
+    "description": "Introduction to Cybersecurity",
+    "credits": 3,
+    "prereq": null,
+    "coreq": null,
+    "enrolled":false
+  },
+  {
+    "id": 46,
+    "name": "CISC366",
+    "description": "Independent Study",
     "credits": 3,
     "prereq": null,
     "coreq": null,

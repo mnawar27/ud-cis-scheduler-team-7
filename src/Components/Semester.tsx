@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import Course from "../Interfaces/Course";
 import {AddCourseMenu} from "./AddCourseMenu";
 import COURSES from "../Assets/courses.json";
@@ -59,54 +59,61 @@ export function Semester(props:{courses:Course[];year:number;season:string}): JS
  
     return <div className={"semester"}>
         <h5>Year {props.year}   {props.season} Semester</h5>
-        <table>
-            <tr>
-                <td>ID</td>
-                <td>Name</td>
-                <td>Credits</td>
-                <td>Preq for</td>
-            </tr>
-            {courses.slice().map((Course,i)=> {
-                const prereqs:string[]=[];
-                for(let i=0;i<COURSES.length;i++){
-                    if(COURSES[i].prereq!=null){
-                        if(COURSES[i].prereq?.includes(Course.name)){
-                            prereqs.push(COURSES[i].name);
-                        }
-                    }
-                }
-                return (
-                    <tr key={i}>
-                        <td scope="col">{Course.name}</td>
-                        <td scope="col">{Course.description}</td>
-                        <td scope="col">{Course.credits}</td>
-                        <td scope="col">{prereqs.map((i)=>{
-                            return i+"\n";
-                        }
-                        )}</td>
-
-                        <td scope="col" align="center">
-                            <Button id="special" className="btn btn-sm" onClick={()=>removeCourse(Course)}>Remove course</Button>
-                            <Button id="special2" className="btn btn-sm" onClick={()=>editCourse(Course.id)}>Edit course</Button>
-                        </td>
+        <div className="table-responsive-xl">
+            <Table className="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <td><strong>ID</strong></td>
+                        <td><strong>Name</strong></td>
+                        <td><strong>Credits</strong></td>
+                        <td><strong>Preq for</strong></td>
+                        <td></td>
                     </tr>
-                );
-            })}
-        </table>
+                </thead>
+                <tbody>
+                    {courses.slice().map((Course,i)=> {
+                        const prereqs:string[]=[];
+                        for(let i=0;i<COURSES.length;i++){
+                            if(COURSES[i].prereq!=null){
+                                if(COURSES[i].prereq?.includes(Course.name)){
+                                    prereqs.push(COURSES[i].name);
+                                }
+                            }
+                        }
+                        return (
+                            <tr key={i}>
+                                <td scope="col">{Course.name}</td>
+                                <td scope="col">{Course.description}</td>
+                                <td scope="col">{Course.credits}</td>
+                                <td scope="col">{prereqs.map((i)=>{
+                                    return i+"\n";
+                                }
+                                )}</td>
+
+                                <td scope="col" align="center">
+                                    <Button id="remove-course-button" className="btn btn-sm" onClick={()=>removeCourse(Course)}>Remove</Button>
+                                    <Button id="edit-course-button" className="btn btn-sm" onClick={()=>editCourse(Course.id)}>Edit</Button>
+                                </td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </Table>
+        </div>
         <Button className="btn btn-light btn-sm" onClick={()=>clearSemester()}>Clear courses</Button>
         <Button className="btn btn-light btn-sm" onClick={()=>setPopup(true)}>Add course</Button>
-        <AddCourseMenu trigger={popup} setTrigger={setPopup} setCourses={setCourses} courses={courses}></AddCourseMenu>
-
+        <div className="course-menu">
+            <AddCourseMenu trigger={popup} setTrigger={setPopup} setCourses={setCourses} courses={courses}></AddCourseMenu>
+        </div>
         {editDiagram?
             <div className='outer-diagram'>
                 <div className='diagram'>
-                    <EditCourse  editTmpId={editTmpId}  editAddCourse={editAddCourse}/>
-                    <button className='diagram-cancel btn btn-primary' onClick={cancelEditDiagram}>Cancel</button>
+                    <EditCourse editTmpId={editTmpId}  editAddCourse={editAddCourse}/>
+                    <Button id="cancel-button" className='diagram-cancel btn btn-sm' onClick={cancelEditDiagram}>Cancel</Button>
                 </div>
             </div> :
             <div></div>
         }
-
     </div>
     ;
 }
