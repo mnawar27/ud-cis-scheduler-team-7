@@ -6,7 +6,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": "MATH115, MATH117",
-    "enrolled":false
+    "enrolled":1
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "credits": 3,
     "prereq": "CISC108/CISC106",
     "coreq": "MATH221, MATH241",
-    "enrolled":false
+    "enrolled":2
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "credits": 3,
     "prereq": "CISC108/CISC106",
     "coreq": "MATH221, MATH241",
-    "enrolled":false
+    "enrolled":2
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "credits": 3,
     "prereq": "CISC181",
     "coreq": "MATH210, MATH241",
-    "enrolled":false
+    "enrolled":3
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "credits": 3,
     "prereq": "CISC181",
     "coreq": null,
-    "enrolled":false
+    "enrolled":3
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "credits": 3,
     "prereq": "CISC220",
     "coreq": null,
-    "enrolled":false
+    "enrolled":4
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "credits": 3,
     "prereq": "MATH210, CISC220",
     "coreq": null,
-    "enrolled":false
+    "enrolled":6
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "credits": 3,
     "prereq": "CISC 220, MATH 210",
     "coreq": null,
-    "enrolled":false
+    "enrolled":5
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "credits": 3,
     "prereq": "MATH210, CISC220",
     "coreq": null,
-    "enrolled":false
+    "enrolled":5
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":4
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "credits": 3,
     "prereq": "CISC 220, CISC 260 or CPEG 222",
     "coreq": null,
-    "enrolled":false
+    "enrolled":5
   },
   {
     "id": 12,
@@ -105,7 +105,7 @@
     "credits": 3,
     "prereq": "CISC220, CISC260",
     "coreq": null,
-    "enrolled":false
+    "enrolled":7
   },
   {
     "id": 13,
@@ -114,7 +114,7 @@
     "credits": 3,
     "prereq": "CISC275, CISC320",
     "coreq": null,
-    "enrolled":false
+    "enrolled":7
   },
   {
     "id": 14,
@@ -123,7 +123,7 @@
     "credits": 3,
     "prereq": "CISC498",
     "coreq": null,
-    "enrolled":false
+    "enrolled":8
   },
   {
     "id": 15,
@@ -132,7 +132,7 @@
     "credits": 2,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":1
   },
   {
     "id": 16,
@@ -141,7 +141,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":1
   },
   {
     "id": 17,
@@ -150,7 +150,7 @@
     "credits": 3,
     "prereq": "ENGL110",
     "coreq": null,
-    "enrolled":false
+    "enrolled":6
   },
   {
     "id": 18,
@@ -159,7 +159,7 @@
     "credits": 3,
     "prereq": "ENGL110",
     "coreq": null,
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 19,
@@ -168,7 +168,7 @@
     "credits": 4,
     "prereq": "MATH 210/MATH 230",
     "coreq": null,
-    "enrolled":false
+    "enrolled":4
   },
   {
     "id": 20,
@@ -177,7 +177,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": "MATH 241, MATH 242, MATH 232",
-    "enrolled":false
+    "enrolled":3
   },
   {
     "id": 21,
@@ -186,7 +186,7 @@
     "credits": 4,
     "prereq": "MATH117",
     "coreq": null,
-    "enrolled":false
+    "enrolled":1
   },
   {
     "id": 22,
@@ -195,7 +195,7 @@
     "credits": 4,
     "prereq": "MATH232/MATH241",
     "coreq": null,
-    "enrolled":false
+    "enrolled":2
   },
   {
     "id": 23,
@@ -204,7 +204,7 @@
     "credits": "2021-02-04T05:00:00.000Z",
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 24,
@@ -213,7 +213,7 @@
     "credits": 4,
     "prereq": null,
     "coreq": "MATH241",
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 25,
@@ -222,7 +222,7 @@
     "credits": 4,
     "prereq": "PHYS 207, MATH 241",
     "coreq": "MATH242",
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 26,
@@ -231,7 +231,7 @@
     "credits": 4,
     "prereq": null,
     "coreq": "MATH 114, MATH 115, or MATH 117",
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 27,
@@ -240,7 +240,7 @@
     "credits": 4,
     "prereq": "CHEM 101, CHEM 103, CHEM 105, CHEM107, or CHEM 111",
     "coreq": null,
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 28,
@@ -249,7 +249,7 @@
     "credits": 4,
     "prereq": null,
     "coreq": "MATH 114 or higher",
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 29,
@@ -258,7 +258,7 @@
     "credits": 4,
     "prereq": "CHEM 107, BISC 207",
     "coreq": "BISC 208",
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 30,
@@ -267,7 +267,7 @@
     "credits": 4,
     "prereq": null,
     "coreq": "CHEM 103/CHEM 107/CHEM 111",
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 31,
@@ -276,7 +276,7 @@
     "credits": 4,
     "prereq": "BISC 207/BISC 205",
     "coreq": "CHEM 104/CHEM 108/CHEM 112",
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 32,
@@ -285,7 +285,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 33,
@@ -294,7 +294,7 @@
     "credits": 4,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":3
   },
   {
     "id": 34,
@@ -303,7 +303,7 @@
     "credits": 1,
     "prereq": null,
     "coreq": "GEOL 105",
-    "enrolled":false
+    "enrolled":5
   },
   {
     "id": 35,
@@ -312,7 +312,7 @@
     "credits": 4,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 36,
@@ -321,7 +321,7 @@
     "credits": 4,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":4
   },
   {
     "id": 37,
@@ -330,7 +330,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":7
   },
   {
     "id": 38,
@@ -339,7 +339,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 39,
@@ -348,7 +348,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":7
   },
   {
     "id": 40,
@@ -357,7 +357,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 41,
@@ -366,7 +366,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":2
   },
   {
     "id": 42,
@@ -375,7 +375,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":6
   },
   {
     "id": 43,
@@ -384,7 +384,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":8
   },
   {
     "id": 44,
@@ -393,7 +393,7 @@
     "credits": 3,
     "prereq": "CISC101 or CISC103 or CISC106 or CISC108",
     "coreq": null,
-    "enrolled":false
+    "enrolled":8
   },
   {
     "id": 45,
@@ -402,7 +402,7 @@
     "credits": 3,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":0
   },
   {
     "id": 46,
@@ -411,6 +411,6 @@
     "credits": 3,
     "prereq": null,
     "coreq": null,
-    "enrolled":false
+    "enrolled":8
   }
 ]

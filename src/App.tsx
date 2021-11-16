@@ -15,7 +15,7 @@ import "./Components/Semester.css";
 import "./Components/Menu.css";
 function App(): JSX.Element {
     const defaultfall:Course[][]=[[COURSES[0],COURSES[14],COURSES[15],COURSES[20]],[COURSES[3],COURSES[4],COURSES[19],COURSES[34]],[COURSES[7],COURSES[8],COURSES[10],COURSES[33]],[COURSES[12],COURSES[11],COURSES[36],COURSES[38]]];
-    const defaultspring:Course[][]=[[COURSES[1],COURSES[2],COURSES[21],COURSES[40]],[COURSES[5],COURSES[9],COURSES[18],COURSES[35]],[COURSES[6],COURSES[11],COURSES[16],COURSES[41]],[COURSES[13],COURSES[43],COURSES[42],COURSES[45]]];
+    const defaultspring:Course[][]=[[COURSES[1],COURSES[2],COURSES[21],COURSES[40]],[COURSES[5],COURSES[9],COURSES[18],COURSES[35]],[COURSES[6],COURSES[34],COURSES[16],COURSES[41]],[COURSES[13],COURSES[43],COURSES[42],COURSES[45]]];
     const [fallsemesters, setFallSemesters]=useState(defaultfall);
     const [springsemesters, setSpringSemesters]=useState(defaultspring);
     const [clear,setClear]=useState(true);
@@ -41,7 +41,7 @@ function App(): JSX.Element {
             if(fsemesters.length>0){
                 for(let i=0;i<fsemesters[fsemesters.length-1].length;i++){
                     n=fsemesters[fsemesters.length-1][i].id;
-                    COURSES[n-1].enrolled=false;
+                    COURSES[n-1].enrolled=0;
                 }
             }
             if(copy.length==0 && ssemesters.length==0){
@@ -54,7 +54,7 @@ function App(): JSX.Element {
             if(ssemesters.length>0){
                 for(let i=0;i<ssemesters[ssemesters.length-1].length;i++){
                     n=ssemesters[ssemesters.length-1][i].id;
-                    COURSES[n-1].enrolled=false;
+                    COURSES[n-1].enrolled=0;
                 }
             }
             if(fsemesters.length==0 && copy.length==0){
@@ -65,21 +65,21 @@ function App(): JSX.Element {
     }
     function clearSemester(){
         for(let i=0;i<COURSES.length;i++){
-            COURSES[i].enrolled=false;
+            COURSES[i].enrolled=0;
         }
         setClear(false);
         setFallSemesters([]);
         setSpringSemesters([]);
     }
     function setDefault(){
-        defaultfall.map((semester)=>{
+        defaultfall.map((semester,i)=>{
             semester.map((course)=>{
-                course.enrolled=true;
+                course.enrolled=i+1;
             });
         });
-        defaultspring.map((semester)=>{
+        defaultspring.map((semester,i)=>{
             semester.map((course)=>{
-                course.enrolled=true;
+                course.enrolled=2*(i+1);
             });
         });
         setFallSemesters(defaultfall);

@@ -16,7 +16,7 @@ export function Semester(props:{courses:Course[];year:number;season:string}): JS
         let n:number;
         for (let i=0;i<courses.length;i++){
             n=courses[i].id;
-            COURSES[n-1].enrolled=false;
+            COURSES[n-1].enrolled=0;
         }
         setCourses([]);
     }
@@ -27,7 +27,7 @@ export function Semester(props:{courses:Course[];year:number;season:string}): JS
             if(course.id==courses[i].id){
                 copy1.splice(i,1);
                 n=course.id;
-                COURSES[n-1].enrolled=false;
+                COURSES[n-1].enrolled=0;
             }
         }
         setCourses(copy1);
@@ -103,7 +103,7 @@ export function Semester(props:{courses:Course[];year:number;season:string}): JS
         <Button className="btn btn-light btn-sm" onClick={()=>clearSemester()}>Clear courses</Button>
         <Button className="btn btn-light btn-sm" onClick={()=>setPopup(true)}>Add course</Button>
         <div className="course-menu">
-            <AddCourseMenu trigger={popup} setTrigger={setPopup} setCourses={setCourses} courses={courses}></AddCourseMenu>
+            <AddCourseMenu trigger={popup} setTrigger={setPopup} setCourses={setCourses} courses={courses} year={props.year} season={props.season}></AddCourseMenu>
         </div>
         {editDiagram?
             <div className='outer-diagram'>
