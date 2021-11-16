@@ -72,6 +72,16 @@ function App(): JSX.Element {
         setSpringSemesters([]);
     }
     function setDefault(){
+        defaultfall.map((semester)=>{
+            semester.map((course)=>{
+                course.enrolled=true;
+            });
+        });
+        defaultspring.map((semester)=>{
+            semester.map((course)=>{
+                course.enrolled=true;
+            });
+        });
         setFallSemesters(defaultfall);
         setSpringSemesters(defaultspring);
         setClear(true);
