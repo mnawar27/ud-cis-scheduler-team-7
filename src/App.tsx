@@ -101,7 +101,7 @@ function App(): JSX.Element {
                     {/* menu column */}
                     <div className="col-2">
                         <h3>Course list</h3>
-                        <button className="btn btn-light btn-sm" onClick={useForceUpdate()}>Update course</button>
+                        <button className="btn btn-light btn-sm" onClick={useForceUpdate()}>Update schedule</button>
                         <Menu />
                     </div>
                     {/* rightside of page column */}
@@ -119,7 +119,10 @@ function App(): JSX.Element {
                                     </div>
                                 </div>
                                 <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,true)}>Add fall semester</button>
-                                <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,true)}>Remove last fall semester</button>
+                                {clear?
+                                    <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,true)}>Remove last fall semester</button>:
+                                    <div></div>
+                                }
                                 {fallsemesters.map((Courses,i)=>{
                                     return(
                                         <Semester key = {i}
@@ -138,7 +141,10 @@ function App(): JSX.Element {
                                     </div>
                                 </div>
                                 <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,false)}>Add spring semester</button>
-                                <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,false)}>Remove last spring semester</button>
+                                {clear?
+                                    <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,false)}>Remove last spring semester</button>:
+                                    <div></div>
+                                }
                                 {springsemesters.map((Courses,i)=>{
                                     return(
                                         <Semester key = {i}

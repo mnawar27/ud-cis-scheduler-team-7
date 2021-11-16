@@ -5,6 +5,13 @@
     height: auto;
 }
 
-ul {
+#menu-list {
+    list-style-type: none;
+}
+
+.form-control-sm {
+    max-width: 50px;
+}
+li {
     list-style-type: none;
 }

@@ -17,6 +17,7 @@
   display: flex;
 }
 .col-2 {
+  padding-top: 10px;
   background-color: #2c3034;
   max-width: 200px;
 }
@@ -27,5 +28,5 @@
   opacity: 0;
 }
 #schedule-title{
-  padding: 15px;
+  padding: 10px;
 }
