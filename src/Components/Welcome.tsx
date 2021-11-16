@@ -10,7 +10,7 @@ export function Welcome(): JSX.Element{
             <ToastContainer position="top-end" className="p-3">
                 <Toast show={!show} onClose={()=>setShow(!show)} bg="light" autohide>
                     <ToastHeader>
-                        <strong className="me-auto">Welcome to UD CIS Scheduler!</strong>
+                        <strong className="me-auto">Welcome!</strong>
                     </ToastHeader>
                     <Toast.Body> 
                         <p>This handy dandy website can help you plan out your computer science degree at UD.</p>
