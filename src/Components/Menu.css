@@ -1,8 +1,8 @@
 .menu {
     scroll-behavior: smooth;
-    overflow-x: scroll;
     white-space: nowrap;
     height: auto;
+    max-width: 400px;
 }
 
 #menu-list {
@@ -10,7 +10,7 @@
 }
 
 .form-control-sm {
-    max-width: 50px;
+    max-width: 100px;
 }
 li {
     list-style-type: none;

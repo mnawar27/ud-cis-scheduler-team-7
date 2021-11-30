@@ -8,7 +8,6 @@ import EditCourse from "./EditCourse";
 export function Semester(props:{courses:Course[];year:number;season:string}): JSX.Element{
     const [popup,setPopup]=useState(false);
     const [courses,setCourses]=useState(props.courses);
-
     const [editDiagram, setEditDiagram] = useState(false);
     const [editTmpId,setEditTmpId] = useState<number>(0);
 
