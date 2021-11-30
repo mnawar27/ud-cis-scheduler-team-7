@@ -24,18 +24,18 @@ function App(): JSX.Element {
         value;
         return () => setValue(value => value + 1); // update the state to force render
     }
-    function addSemester(fsemesters:Course[][],ssemesters:Course[][],season:boolean){
-        if(season==true){
+    function addSemester(fsemesters:Course[][],ssemesters:Course[][],season:string){
+        if(season=="fall"){
             setFallSemesters([...fsemesters,[]]);
         }else{
             setSpringSemesters([...ssemesters,[]]);
         }
         setClear(true);
     }
-    function removeSemester(fsemesters:Course[][],ssemesters:Course[][],season:boolean){
+    function removeSemester(fsemesters:Course[][],ssemesters:Course[][],season:string){
         let n:number;
         let copy:Course[][];
-        if (season==true){
+        if (season=="fall"){
             copy=[...fsemesters];
             copy.splice(fsemesters.length-1,1);
             if(fsemesters.length>0){
@@ -118,9 +118,9 @@ function App(): JSX.Element {
                                             <button className="btn btn-light btn-sm" onClick={()=>setDefault()}>Set default plan</button>}
                                     </div>
                                 </div>
-                                <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,true)}>Add fall semester</button>
+                                <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,"fall")}>Add fall semester</button>
                                 {clear?
-                                    <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,true)}>Remove last fall semester</button>:
+                                    <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,"fall")}>Remove last fall semester</button>:
                                     <div></div>
                                 }
                                 {fallsemesters.map((Courses,i)=>{
@@ -140,9 +140,9 @@ function App(): JSX.Element {
                                         <button className="btn btn-light btn-sm">Load plan</button>
                                     </div>
                                 </div>
-                                <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,false)}>Add spring semester</button>
+                                <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,"spring")}>Add spring semester</button>
                                 {clear?
-                                    <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,false)}>Remove last spring semester</button>:
+                                    <button className="btn btn-light btn-sm" onClick={()=>removeSemester(fallsemesters,springsemesters,"spring")}>Remove last spring semester</button>:
                                     <div></div>
                                 }
                                 {springsemesters.map((Courses,i)=>{
