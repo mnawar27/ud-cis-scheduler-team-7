@@ -62,7 +62,7 @@ export function Menu(): JSX.Element{
             <ul id="menu-list" className="nav navbar-nav">
                 {COURSES.map((Course, i) => {
                     if(Course.enrolled>0){
-                        return <li key={i}><strong>{Course.name}</strong> {Course.description} <button onClick={()=>overrideCourse(i)}> Override This Course</button></li>;
+                        return <li key={i}><strong>{Course.name}</strong> {Course.description} <button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}> Override</button></li>;
                     }
                 })}
             </ul>
