@@ -1,12 +1,12 @@
 .semester{
     color: #ffff;
     margin-top: 5px;
-    position: relative; 
+    position: relative;
 }
 table {
     overflow-x: scroll;
     max-width: 800px;
-    min-width: 200px;
+    min-width: 50px;
     border: solid;
     border-color: #ffff;
     margin: 0px;
