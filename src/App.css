@@ -19,13 +19,11 @@
 .col-2 {
   padding-top: 10px;
   background-color: #2c3034;
-  max-width: 200px;
+  min-width: 475px;
 }
 .col {
   min-width: none;
-}
-.fake{
-  opacity: 0;
+  max-width: 300px;
 }
 #schedule-title{
   padding: 10px;

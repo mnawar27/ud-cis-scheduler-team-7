@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import Course from "../Interfaces/Course";
 import {AddCourseMenu} from "./AddCourseMenu";
-import COURSES from "../Assets/courses.json";
 import EditCourse from "./EditCourse";
 
-export function Semester(props:{courses:Course[];year:number;season:string}): JSX.Element{
+export function Semester(props:{courses:Course[];year:number;season:string,courseList:Course[]; setCourseList:(arg0: Course[])=>void}): JSX.Element{
     const [popup,setPopup]=useState(false);
     const [courses,setCourses]=useState(props.courses);
-
     const [editDiagram, setEditDiagram] = useState(false);
     const [editTmpId,setEditTmpId] = useState<number>(0);
 
@@ -16,8 +14,9 @@ export function Semester(props:{courses:Course[];year:number;season:string}): JS
         let n:number;
         for (let i=0;i<courses.length;i++){
             n=courses[i].id;
-            COURSES[n-1].enrolled=0;
+            props.courseList[n-1].enrolled=0;
         }
+        props.setCourseList([...props.courseList]);
         setCourses([]);
     }
     function removeCourse(course:Course){
@@ -27,9 +26,10 @@ export function Semester(props:{courses:Course[];year:number;season:string}): JS
             if(course.id==courses[i].id){
                 copy1.splice(i,1);
                 n=course.id;
-                COURSES[n-1].enrolled=0;
+                props.courseList[n-1].enrolled=0;
             }
         }
+        props.setCourseList([...props.courseList]);
         setCourses(copy1);
     }
 
@@ -73,10 +73,10 @@ export function Semester(props:{courses:Course[];year:number;season:string}): JS
                 <tbody>
                     {courses.slice().map((Course,i)=> {
                         const prereqs:string[]=[];
-                        for(let i=0;i<COURSES.length;i++){
-                            if(COURSES[i].prereq!=null){
-                                if(COURSES[i].prereq?.includes(Course.name)){
-                                    prereqs.push(COURSES[i].name);
+                        for(let i=0;i<props.courseList.length;i++){
+                            if(props.courseList[i].prereq!=null){
+                                if(props.courseList[i].prereq?.includes(Course.name)){
+                                    prereqs.push(props.courseList[i].name);
                                 }
                             }
                         }
@@ -103,7 +103,7 @@ export function Semester(props:{courses:Course[];year:number;season:string}): JS
         <Button className="btn btn-light btn-sm" onClick={()=>clearSemester()}>Clear courses</Button>
         <Button className="btn btn-light btn-sm" onClick={()=>setPopup(true)}>Add course</Button>
         <div className="course-menu">
-            <AddCourseMenu trigger={popup} setTrigger={setPopup} setCourses={setCourses} courses={courses} year={props.year} season={props.season}></AddCourseMenu>
+            <AddCourseMenu trigger={popup} setTrigger={setPopup} setCourses={setCourses} setCourseList={props.setCourseList} courseList={props.courseList} courses={courses} year={props.year} season={props.season}></AddCourseMenu>
         </div>
         {editDiagram?
             <div className='outer-diagram'>
