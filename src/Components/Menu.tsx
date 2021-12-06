@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import COURSES from "../Assets/courses.json";
 import { Button } from "react-bootstrap";
+import { useDrag } from 'react-dnd'
 
 export function Menu(): JSX.Element{
     const [name,setName] = useState("");
@@ -50,6 +51,15 @@ export function Menu(): JSX.Element{
             }
             <br/>
             <h6><strong>Incomplete Requirements</strong></h6>
+            <RLDD
+                items = {COURSES.map((Course, i) => {
+                    if(Course.enrolled==0){
+                        return <li key={i}><strong>{Course.name}</strong> {Course.description} <button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}>Override</button></li>;
+                    }
+                })}
+                itemRenderer={this.itemRenderer}
+                onChange={this.handleRLDDChange}
+            />
             <ul id="menu-list" className="nav navbar-nav">
                 {COURSES.map((Course, i) => {
                     if(Course.enrolled==0){
