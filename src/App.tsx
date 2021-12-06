@@ -85,6 +85,22 @@ function App(): JSX.Element {
         setSpringSemesters(defaultspring);
         setClear(true);
     }
+
+    function download(){
+        function semCourses(c: Course[]){
+            const semCourse = c.map((co: Course) => co.name + "," + co.description + "," + co.credits + "\n");
+            return semCourse;
+        }
+    
+        const csvContent = "data:text/csv;charset=utf-8," + "\nFall Semesters: \n" + "Course, " + "Name, " + "Credits\n" + fallsemesters.map((f: Course[]) => semCourses(f) + "\n") ;
+  
+        const hiddenElement = document.createElement("a");
+        hiddenElement.href = encodeURI(csvContent);
+        hiddenElement.target = "_blank";
+        hiddenElement.download = "Schedule.csv";
+        hiddenElement.click();
+    }
+ 
     return (
         <div className="App">
             <Welcome />
@@ -138,6 +154,7 @@ function App(): JSX.Element {
                                     <div className="col">
                                         <button className="btn btn-light btn-sm">Save plan</button>
                                         <button className="btn btn-light btn-sm">Load plan</button>
+                                        <button className="btn btn-light btn-sm" onClick={download}>Download</button>
                                     </div>
                                 </div>
                                 <button className="btn btn-light btn-sm" onClick={()=>addSemester(fallsemesters,springsemesters,"spring")}>Add spring semester</button>
