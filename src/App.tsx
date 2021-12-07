@@ -27,6 +27,21 @@ function App(): JSX.Element {
     }));
     const [fallsemesters, setFallSemesters]=useState(defaultfall);
     const [springsemesters, setSpringSemesters]=useState(defaultspring);
+    function download(){
+        function semCourses(c: Course[]){
+            const semCourse = c.map((co: Course) => co.name + "," + co.description + "," + co.credits + "\n");
+            return semCourse;
+        }
+    
+        const csvContent = "data:text/csv;charset=utf-8," + "\nFall Semesters: \n" + "Course, " + "Name, " + "Credits\n" + fallsemesters.map((f: Course[]) => semCourses(f) + "\n") + "\nSpring Semesters: \n" + "Course, " + "Name, " + "Credits\n" + springsemesters.map((sp: Course[]) => semCourses(sp) +"\n");
+
+        const hiddenElement = document.createElement("a");
+        hiddenElement.href = encodeURI(csvContent);
+        hiddenElement.target = "_blank";
+        hiddenElement.download = "Schedule.csv";
+        hiddenElement.click();
+    }
+
     return (
         <div className="App">
             <Welcome />
