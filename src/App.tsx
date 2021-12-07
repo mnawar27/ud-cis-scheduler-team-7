@@ -15,8 +15,16 @@ import "./Components/Semester.css";
 import "./Components/Menu.css";
 function App(): JSX.Element {
     const [courseList,setCourseList]=useState(COURSES as Course[]);
-    const defaultfall:Course[][]=[[courseList[0],courseList[14],courseList[15],courseList[20]],[courseList[3],courseList[4],courseList[19],courseList[34]],[courseList[7],courseList[8],courseList[10],courseList[33]],[courseList[12],courseList[11],courseList[36],courseList[38]]];
-    const defaultspring:Course[][]=[[courseList[1],courseList[2],courseList[21],courseList[40]],[courseList[5],courseList[9],courseList[18],courseList[35]],[courseList[6],courseList[34],courseList[16],courseList[41]],[courseList[13],courseList[43],courseList[42],courseList[45]]];
+    const defaultfallids:number[][]=[[0,14,15,20],[3,4,19,34],[7,8,10,33],[12,11,36,8]];
+    const defaultspringids:number[][]=[[1,2,21,40],[5,9,18,35],[6,34,16,41],[13,43,42,45]];
+    const defaultfall:Course[][]=[[],[],[],[]];
+    const defaultspring:Course[][]=[[],[],[],[]];
+    defaultfallids.map((nested,i)=>nested.map((n,c)=>{
+        defaultfall[i][c]=courseList[n];
+    }));
+    defaultspringids.map((nested,i)=>nested.map((n,c)=>{
+        defaultspring[i][c]=courseList[n];
+    }));
     const [fallsemesters, setFallSemesters]=useState(defaultfall);
     const [springsemesters, setSpringSemesters]=useState(defaultspring);
     const [clear,setClear]=useState(true);
