@@ -86,6 +86,20 @@ export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][]
         setFallClear(true);
         setSpringClear(true);
     }
+    function download(){
+        function semCourses(c: Course[]){
+            const semCourse = c.map((co: Course) => co.name + "," + co.description + "," + co.credits + "\n");
+            return semCourse;
+        }
+    
+        const csvContent = "data:text/csv;charset=utf-8," + "\nFall Semesters: \n" + "Course, " + "Name, " + "Credits\n" + props.fallsemesters.map((f: Course[]) => semCourses(f) + "\n") + "\nSpring Semesters: \n" + "Course, " + "Name, " + "Credits\n" + props.springsemesters.map((sp: Course[]) => semCourses(sp) +"\n");
+
+        const hiddenElement = document.createElement("a");
+        hiddenElement.href = encodeURI(csvContent);
+        hiddenElement.target = "_blank";
+        hiddenElement.download = "Schedule.csv";
+        hiddenElement.click();
+    }
     return <div className="col">
         {/* rightside of page row */}
         <div className="row no-gutters" id="schedule-title">
@@ -121,6 +135,7 @@ export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][]
                     <div className="col">
                         <button className="btn btn-light btn-sm">Save plan</button>
                         <button className="btn btn-light btn-sm">Load plan</button>
+                        <button onClick={download}className="btn btn-light btn-sm">download</button>
                     </div>
                 </div>
                 <button className="btn btn-light btn-sm" onClick={()=>addSemester(props.fallsemesters,props.springsemesters,"spring")}>Add spring semester</button>
