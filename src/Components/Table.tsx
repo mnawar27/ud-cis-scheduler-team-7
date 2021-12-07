@@ -5,17 +5,23 @@ import { Semester } from "./Semester";
 
 export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][];courseList:Course[];defaultfall:Course[][];defaultspring:Course[][];setCourseList:(arg0:Course[])=>void,setFallSemesters:(arg0:Course[][])=>void,setSpringSemesters:(arg0:Course[][])=>void}):JSX.Element{
     const [clear,setClear]=useState(true);
+    const [fallclear,setFallClear]=useState(true);
+    const [springclear,setSpringClear]=useState(true);
     function addSemester(fsemesters:Course[][],ssemesters:Course[][],season:string){
         if(season=="fall"){
             props.setFallSemesters([...fsemesters,[]]);
+            setFallClear(true);
         }else{
             props.setSpringSemesters([...ssemesters,[]]);
+            setSpringClear(true);
         }
         setClear(true);
     }
     function removeSemester(fsemesters:Course[][],ssemesters:Course[][],season:string){
         let n:number;
         let copy:Course[][];
+        let fclear=fallclear;
+        let sclear=springclear;
         if (season=="fall"){
             copy=[...fsemesters];
             copy.splice(fsemesters.length-1,1);
@@ -25,8 +31,10 @@ export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][]
                     props.courseList[n-1].enrolled=0;
                 }
             }
-            if(copy.length==0 && ssemesters.length==0){
-                setClear(false);
+            if(copy.length==0){
+                fclear=false;
+                setFallClear(false);
+                
             }
             props.setCourseList([...props.courseList]);
             props.setFallSemesters(copy);
@@ -39,10 +47,14 @@ export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][]
                     props.courseList[n-1].enrolled=0;
                 }
             }
-            if(fsemesters.length==0 && copy.length==0){
-                setClear(false);
+            if(copy.length==0){
+                sclear=false;
+                setSpringClear(false);
             }
             props.setSpringSemesters(copy);
+        }
+        if(sclear==false&&fclear==false){
+            setClear(false);
         }
         props.setCourseList([...props.courseList]);
     }
@@ -51,6 +63,8 @@ export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][]
             props.courseList[i].enrolled=0;
         }
         props.setCourseList([...props.courseList]);
+        setFallClear(false);
+        setSpringClear(false);
         setClear(false);
         props.setFallSemesters([]);
         props.setSpringSemesters([]);
@@ -69,6 +83,8 @@ export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][]
         props.setFallSemesters(props.defaultfall);
         props.setSpringSemesters(props.defaultspring);
         setClear(true);
+        setFallClear(true);
+        setSpringClear(true);
     }
     return <div className="col">
         {/* rightside of page row */}
@@ -84,7 +100,7 @@ export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][]
                     </div>
                 </div>
                 <button className="btn btn-light btn-sm" onClick={()=>addSemester(props.fallsemesters,props.springsemesters,"fall")}>Add fall semester</button>
-                {clear?
+                {fallclear?
                     <button className="btn btn-light btn-sm" onClick={()=>removeSemester(props.fallsemesters,props.springsemesters,"fall")}>Remove last fall semester</button>:
                     <div></div>
                 }
@@ -108,7 +124,7 @@ export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][]
                     </div>
                 </div>
                 <button className="btn btn-light btn-sm" onClick={()=>addSemester(props.fallsemesters,props.springsemesters,"spring")}>Add spring semester</button>
-                {clear?
+                {springclear?
                     <button className="btn btn-light btn-sm" onClick={()=>removeSemester(props.fallsemesters,props.springsemesters,"spring")}>Remove last spring semester</button>:
                     <div></div>
                 }
