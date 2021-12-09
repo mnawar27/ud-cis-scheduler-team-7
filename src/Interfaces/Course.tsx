@@ -2,7 +2,7 @@ interface Course{
     id: number
     name: string
     description: string
-    credits: number | string
+    credits: number
     prereq?: string | null
     coreq?: string | null
     enrolled?: number
