@@ -92,7 +92,7 @@ export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][]
             return semCourse;
         }
     
-        const csvContent = "data:text/csv;charset=utf-8," + "\nFall Semesters: \n" + "Course, " + "Name, " + "Credits\n" + props.fallsemesters.map((f: Course[]) => semCourses(f) + "\n") + "\nSpring Semesters: \n" + "Course, " + "Name, " + "Credits\n" + props.springsemesters.map((sp: Course[]) => semCourses(sp) +"\n");
+        const csvContent = "data:text/csv;charset=utf-8," + "Fall Semesters: \n" + "Course, " + "Name, " + "Credits\n" + props.fallsemesters.map((f: Course[]) => semCourses(f) + "\n") + "\nSpring Semesters: \n" + "Course, " + "Name, " + "Credits\n" + props.springsemesters.map((sp: Course[]) => semCourses(sp) +"\n");
 
         const hiddenElement = document.createElement("a");
         hiddenElement.href = encodeURI(csvContent);
@@ -134,7 +134,6 @@ export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][]
                 <div className="row">
                     <div className="col">
                         <button className="btn btn-light btn-sm">Save plan</button>
-                        <button className="btn btn-light btn-sm">Load plan</button>
                         <button onClick={download}className="btn btn-light btn-sm">download</button>
                     </div>
                 </div>
