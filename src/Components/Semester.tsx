@@ -8,8 +8,8 @@ export function Semester(props:{courses:Course[];year:number;season:string,cours
     const [popup,setPopup]=useState(false);
     const [courses,setCourses]=useState(props.courses);
     const [editDiagram, setEditDiagram] = useState(false);
+    const [addDiagram, setAddDiagram] = useState(false);
     const [editTmpId,setEditTmpId] = useState<number>(0);
-
     function clearSemester(){
         let n:number;
         for (let i=0;i<courses.length;i++){
@@ -32,7 +32,6 @@ export function Semester(props:{courses:Course[];year:number;season:string,cours
         props.setCourseList([...props.courseList]);
         setCourses(copy1);
     }
-
     const editCourse = (id:number) => {
         setEditDiagram(true);
         const tmpCourse = courses.filter((res)=>{
@@ -40,8 +39,6 @@ export function Semester(props:{courses:Course[];year:number;season:string,cours
         });
         setEditTmpId(tmpCourse[0].id);
     };
-  
-    
     const editAddCourse=(tmpCourse:Course)=>{
         let curIndex = 0;
         const curCourse = JSON.parse(JSON.stringify(courses));
@@ -52,12 +49,15 @@ export function Semester(props:{courses:Course[];year:number;season:string,cours
         setCourses(curCourse);
         setEditDiagram(false);
     };
-  
     const cancelEditDiagram = () => {
         setEditDiagram(false);
+    };  
+    const openAddDiagram = () => {
+        setPopup(true);
+        setAddDiagram(true);
     };
- 
     return <div className={"semester"}>
+        <br/>
         <h5>Year {props.year}   {props.season} Semester</h5>
         <div className="table-responsive-xl">
             <Table className="table table-striped table-dark">
@@ -101,10 +101,15 @@ export function Semester(props:{courses:Course[];year:number;season:string,cours
             </Table>
         </div>
         <Button className="btn btn-light btn-sm" onClick={()=>clearSemester()}>Clear courses</Button>
-        <Button className="btn btn-light btn-sm" onClick={()=>setPopup(true)}>Add course</Button>
-        <div className="course-menu">
-            <AddCourseMenu trigger={popup} setTrigger={setPopup} setCourses={setCourses} setCourseList={props.setCourseList} courseList={props.courseList} courses={courses} year={props.year} season={props.season}></AddCourseMenu>
-        </div>
+        <Button className="btn btn-light btn-sm" onClick={openAddDiagram}>Add course</Button>
+        {addDiagram?
+            <div>
+                <div className="course-menu">
+                    <AddCourseMenu trigger={popup} setTrigger={setPopup} setCourses={setCourses} setCourseList={props.setCourseList} courseList={props.courseList} courses={courses} year={props.year} season={props.season}></AddCourseMenu>
+                </div>
+            </div> : 
+            null
+        }  
         {editDiagram?
             <div className='outer-diagram'>
                 <div className='diagram'>
@@ -112,7 +117,7 @@ export function Semester(props:{courses:Course[];year:number;season:string,cours
                     <Button id="cancel-button" className='diagram-cancel btn btn-sm' onClick={cancelEditDiagram}>Cancel</Button>
                 </div>
             </div> :
-            <div></div>
+            null
         }
     </div>
     ;

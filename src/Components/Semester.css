@@ -34,7 +34,7 @@ Button {
     background-color: #a30000;
     color: white;
     border: none;
-    width: 65px;
+    width: fit-content;
     margin: 0px;
     margin-top: 5px;
 }

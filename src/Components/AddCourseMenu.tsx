@@ -13,12 +13,15 @@ export function AddCourseMenu(props:{trigger:boolean;courses:Course[];year:numbe
         }
         props.setCourseList([...props.courseList]);
     }
+    const closeAddDiagram = () => {
+        props.setTrigger(false);
+    };
     return props.trigger ?
         <div>
-            <h5>Course list</h5>
+            <h5>Course list &nbsp;&nbsp; <Button id="cancel-button" className='diagram-cancel btn btn-sm' onClick={closeAddDiagram}>Cancel</Button></h5>
             <ul className="nav navbar-nav">
                 {props.courseList.map((Course, i) => {
-                    if(Course.enrolled==0){
+                    if(Course.enrolled){
                         return <li key={i}><Button className="btn btn-light btn-sm" onClick={()=>addCourse(Course,i)}>+</Button> <strong>{Course.name}</strong> {Course.description} </li>;
                     }
                 })}

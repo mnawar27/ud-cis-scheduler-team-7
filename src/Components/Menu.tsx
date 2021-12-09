@@ -16,15 +16,6 @@ export function Menu(props:{courseList:Course[];setCourseList:(arg0:Course[])=>v
     return(
         <div className="menu">
             <h5><strong>Incomplete Requirements</strong></h5>
-            {/* <RLDD
-                items = {COURSES.map((Course, i) => {
-                    if(Course.enrolled==0){
-                        return <li key={i}><strong>{Course.name}</strong> {Course.description} <button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}>Override</button></li>;
-                    }
-                })}
-                itemRenderer={this.itemRenderer}
-                onChange={this.handleRLDDChange}
-            /> */}
             <ul id="menu-list" className="nav navbar-nav">
                 {props.courseList.map((Course, i) => {
                     if(Course.enrolled==0){
