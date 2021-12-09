@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-import React, { useState } from 'react'
-import COURSES from "../Assets/courses.json";
-import { Button } from "react-bootstrap";
-import { useDrag } from 'react-dnd'
-=======
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import Course from "../Interfaces/Course";
->>>>>>> f1913778ad84076e6cd625ab56576b53848af6b8
 
 export function Menu(props:{courseList:Course[];setCourseList:(arg0:Course[])=>void}): JSX.Element{
     const [name,setName] = useState("");
@@ -55,7 +48,7 @@ export function Menu(props:{courseList:Course[];setCourseList:(arg0:Course[])=>v
             }
             <br/>
             <h6><strong>Incomplete Requirements</strong></h6>
-            <RLDD
+            {/* <RLDD
                 items = {COURSES.map((Course, i) => {
                     if(Course.enrolled==0){
                         return <li key={i}><strong>{Course.name}</strong> {Course.description} <button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}>Override</button></li>;
@@ -63,11 +56,11 @@ export function Menu(props:{courseList:Course[];setCourseList:(arg0:Course[])=>v
                 })}
                 itemRenderer={this.itemRenderer}
                 onChange={this.handleRLDDChange}
-            />
+            /> */}
             <ul id="menu-list" className="nav navbar-nav">
                 {props.courseList.map((Course, i) => {
                     if(Course.enrolled==0){
-                        return <li key={i}><strong>{Course.name}</strong> {Course.description} <button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}>Override</button></li>;
+                        return <li key={i}><button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}>Override</button> <strong>{Course.name}</strong> {Course.description}</li>;
                     }
                 })}
             </ul>
@@ -76,7 +69,7 @@ export function Menu(props:{courseList:Course[];setCourseList:(arg0:Course[])=>v
             <ul id="menu-list" className="nav navbar-nav">
                 {props.courseList.map((Course, i) => {
                     if(Course.enrolled!=0){
-                        return <li key={i}><strong>{Course.name}</strong> {Course.description} <button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}> Override</button></li>;
+                        return <li key={i}><button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}> Override</button> <strong>{Course.name}</strong> {Course.description}</li>;
                     }
                 })}
             </ul>

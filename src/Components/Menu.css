@@ -4,11 +4,9 @@
     height: auto;
     max-width: 400px;
 }
-
 #menu-list {
     list-style-type: none;
 }
-
 .form-control-sm {
     max-width: 100px;
 }

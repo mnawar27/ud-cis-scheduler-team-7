@@ -5,6 +5,6 @@ interface Course{
     credits: number | string
     prereq?: string | null
     coreq?: string | null
-    enrolled?:number
+    enrolled?: number
 }
 export default Course;
