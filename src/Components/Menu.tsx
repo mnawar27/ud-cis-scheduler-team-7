@@ -41,13 +41,13 @@ export function Menu(props:{courseList:Course[];setCourseList:(arg0:Course[])=>v
                         </div>
                     </form> 
                     <Button id="cancel-button" className="btn btn-sm" onClick={()=>setOverride(false)}>Cancel</Button>
-                </div>:
+                </div> :
                 <div>
                     <button className="btn btn-light btn-sm" onClick={()=>setOverride(true)}>Override course</button>
                 </div>
             }
             <br/>
-            <h6><strong>Incomplete Requirements</strong></h6>
+            <h5><strong>Incomplete Requirements</strong></h5>
             {/* <RLDD
                 items = {COURSES.map((Course, i) => {
                     if(Course.enrolled==0){
@@ -60,16 +60,16 @@ export function Menu(props:{courseList:Course[];setCourseList:(arg0:Course[])=>v
             <ul id="menu-list" className="nav navbar-nav">
                 {props.courseList.map((Course, i) => {
                     if(Course.enrolled==0){
-                        return <li key={i}><button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}>Override</button> <strong>{Course.name}</strong> {Course.description}</li>;
+                        return <li key={i}> {override? <button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}>Override</button>: null } <strong>{Course.name}</strong> {Course.description}</li>;
                     }
                 })}
             </ul>
             <hr/>
-            <h6><strong>Complete Requirements</strong></h6>
+            <h5><strong>Complete Requirements</strong></h5>
             <ul id="menu-list" className="nav navbar-nav">
                 {props.courseList.map((Course, i) => {
                     if(Course.enrolled!=0){
-                        return <li key={i}><button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}> Override</button> <strong>{Course.name}</strong> {Course.description}</li>;
+                        return <li key={i}> {override? <button className="btn btn-light btn-sm" onClick={()=>overrideCourse(i)}>Override</button>: null } <strong>{Course.name}</strong> {Course.description}</li>;
                     }
                 })}
             </ul>
