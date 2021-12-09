@@ -2,7 +2,6 @@ import React,{useState } from "react";
 import Course from "../Interfaces/Course";
 import { Semester } from "./Semester";
 
-
 export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][];courseList:Course[];defaultfall:Course[][];defaultspring:Course[][];setCourseList:(arg0:Course[])=>void,setFallSemesters:(arg0:Course[][])=>void,setSpringSemesters:(arg0:Course[][])=>void}):JSX.Element{
     const [clear,setClear]=useState(true);
     const [fallclear,setFallClear]=useState(true);
@@ -140,7 +139,7 @@ export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][]
                 <button className="btn btn-light btn-sm" onClick={()=>addSemester(props.fallsemesters,props.springsemesters,"spring")}>Add spring semester</button>
                 {springclear?
                     <button className="btn btn-light btn-sm" onClick={()=>removeSemester(props.fallsemesters,props.springsemesters,"spring")}>Remove last spring semester</button>:
-                    <div></div>
+                    null
                 }
                 {props.springsemesters.map((Courses,i)=>{
                     return(
