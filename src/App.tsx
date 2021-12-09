@@ -153,7 +153,7 @@ function App(): JSX.Element {
                                 <div className="row">
                                     <div className="col">
                                         <button className="btn btn-light btn-sm">Save plan</button>
-                                        <button className="btn btn-light btn-sm">Load plan</button>
+                                        {/* <button className="btn btn-light btn-sm">Load plan</button> */}
                                         <button className="btn btn-light btn-sm" onClick={download}>Download</button>
                                     </div>
                                 </div>
