@@ -134,7 +134,7 @@ export function Table(props:{fallsemesters:Course[][];springsemesters:Course[][]
                 <div className="row">
                     <div className="col">
                         <button className="btn btn-light btn-sm">Save plan</button>
-                        <button onClick={download}className="btn btn-light btn-sm">download</button>
+                        <button onClick={download}className="btn btn-light btn-sm">Download as .CSV</button>
                     </div>
                 </div>
                 <button className="btn btn-light btn-sm" onClick={()=>addSemester(props.fallsemesters,props.springsemesters,"spring")}>Add spring semester</button>
