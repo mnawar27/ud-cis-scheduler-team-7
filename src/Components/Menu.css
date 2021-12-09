@@ -8,3 +8,9 @@
 .form-control-sm {
     max-width: 100px;
 }
+.form-group {
+    margin: 5px;
+}
+#cancel-button {
+    max-width: fit-content;
+}

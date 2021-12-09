@@ -20,11 +20,11 @@
   padding-top: 10px;
   background-color: #2c3034;
   min-width: 300px;
-  overflow-x: scroll;
+  overflow-x: visible;
+  overflow: hidden;
 }
 .col {
   min-width: none;
-  max-width: 300px;
 }
 #schedule-title{
   padding: 10px;
