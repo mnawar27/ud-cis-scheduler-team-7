@@ -227,7 +227,7 @@
   {
     "id": 26,
     "name": "CHEM103",
-    "description": "Gneral Chemistry",
+    "description": "General Chemistry",
     "credits": 4,
     "prereq": null,
     "coreq": "MATH 114, MATH 115, or MATH 117",
@@ -235,8 +235,8 @@
   },
   {
     "id": 27,
-    "name": "CHEM103",
-    "description": "Gneral Chemistry",
+    "name": "CHEM104",
+    "description": "General Chemistry",
     "credits": 4,
     "prereq": "CHEM 101, CHEM 103, CHEM 105, CHEM107, or CHEM 111",
     "coreq": null,
