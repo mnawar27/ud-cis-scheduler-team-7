@@ -1,6 +1,5 @@
 .menu {
     scroll-behavior: smooth;
-    white-space: nowrap;
     overflow: hidden;
     height: auto;
     max-width: 400px;
