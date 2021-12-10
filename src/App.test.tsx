@@ -73,9 +73,9 @@ test("course is set a complete requirement after adding to a semester, and canno
 });
 test("pressing edit course button makes the course edit menu appear",()=>{
     render(<App/>);
-    let button1=screen.getAllByText(/Edit/i);
+    let button1=screen.getAllByText("Edit");
     button1[0].click();
-    let text=screen.queryByText(/Course ID/i);
-    expect(test).toBeInTheDocument();
+    let text=screen.getByText("Course ID");
+    expect(text).toBeInTheDocument();
 });
 
