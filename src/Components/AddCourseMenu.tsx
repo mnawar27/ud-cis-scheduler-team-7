@@ -21,8 +21,8 @@ export function AddCourseMenu(props:{trigger:boolean;courses:Course[];year:numbe
             <h5>Course list &nbsp;&nbsp; <Button id="cancel-button" className='diagram-cancel btn btn-sm' onClick={closeAddDiagram}>Cancel</Button></h5>
             <ul className="nav navbar-nav">
                 {props.courseList.map((Course, i) => {
-                    if(Course.enrolled){
-                        return <li key={i}><Button className="btn btn-light btn-sm" onClick={()=>addCourse(Course,i)}>+</Button> <strong>{Course.name}</strong> {Course.description} </li>;
+                    if(!Course.enrolled){
+                        return <li key={i}><Button className="btn btn-sm" onClick={()=>addCourse(Course,i)}>Add {Course.name} {Course.description}</Button> </li>;
                     }
                 })}
             </ul>
