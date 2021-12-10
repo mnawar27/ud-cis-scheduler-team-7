@@ -60,3 +60,22 @@ test("default button shows after clearing",()=>{
     button1=screen.queryByText(/Set default plan/i);
     expect(button1).toBeInTheDocument();
 });
+test("course is set a complete requirement after adding to a semester, and cannot be added to a semester again",()=>{
+    render(<App/>);
+    let button1=screen.getAllByText(/Add course/i);
+    button1[0].click();
+    let button2=screen.getByText(/Add ENGL410/i);
+    button2.click();
+    expect(button2).not.toBeInTheDocument();
+    button1[0].click();
+    expect(button2).not.toBeInTheDocument();
+
+});
+test("pressing edit course button makes the course edit menu appear",()=>{
+    render(<App/>);
+    let button1=screen.getAllByText(/Edit/i);
+    button1[0].click();
+    let text=screen.queryByText(/Course ID/i);
+    expect(test).toBeInTheDocument();
+});
+
