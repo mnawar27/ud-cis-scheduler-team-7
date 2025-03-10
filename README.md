@@ -1,4 +1,9 @@
-# 275 Final Project Starter Repo
+
+# 275 Final Project- UD Course Scheduler
+
+https://github.com/user-attachments/assets/97b0a64c-93c9-4c3e-8075-85b7c8168d46
+
+Starter Repo
 Hello! This repository has been pre-configured with eslint and gh-pages to automatically deploy your app when you push to the main branch. 
 
 You will, however, need to finish setting up the deployment.
